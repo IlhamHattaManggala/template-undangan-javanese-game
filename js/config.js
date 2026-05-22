@@ -161,7 +161,7 @@ window.weddingConfig = {
   // 9. SETTING DYNAMIC ENGINE & PARALLAX
   // =========================================================================
   engine: {
-    mapWidth: 2000,          // Total panjang peta/jalan game (dalam pixel)
+    mapWidth: 1900,          // Total panjang peta/jalan game (dalam pixel)
     characterSpeed: 10,       // Kecepatan jalan karakter (semakin besar = semakin cepat scroll)
     desktopScale: 1.0,       // Skala zoom box game di desktop komputer
     mobileScale: 1.2,        // Skala zoom layar game di HP/Mobile
@@ -244,7 +244,7 @@ window.weddingConfig = {
     },
     {
       id: "wedding-easel",
-      pos: 1780,
+      pos: 1760,
       bottom: "3%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/wedding_sign.png",
       width: 160,
@@ -254,7 +254,7 @@ window.weddingConfig = {
     },
     {
       id: "mempelai",
-      pos: 1930,
+      pos: 1945,
       bottom: "3%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/couple.png",
       width: 160,
