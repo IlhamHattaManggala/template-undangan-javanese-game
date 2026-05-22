@@ -210,7 +210,7 @@ window.weddingConfig = {
     },
     {
       id: "welcome",
-      pos: 850,
+      pos: 750,
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/parkinfo.png",
       width: 140,
       height: 180,
@@ -220,7 +220,7 @@ window.weddingConfig = {
     },
     {
       id: "gallery",
-      pos: 1400,
+      pos: 1250,
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/crew.png",
       width: 170,
       height: 180,

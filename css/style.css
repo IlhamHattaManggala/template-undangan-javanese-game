@@ -334,7 +334,7 @@ body {
   max-width: 170px;
   height: 180px;
   left: 36%;
-  bottom: 19vh;
+  bottom: 21vh;
   pointer-events: none;
   touch-action: none;
   transition: bottom 2.5s ease-in-out;
@@ -2840,7 +2840,7 @@ body {
 
   /* Character fixed horizontal scaling inside retro gamebox */
   .m-character {
-    bottom: 16% !important;
+    bottom: 21% !important;
     width: 130px !important;
   }
 
