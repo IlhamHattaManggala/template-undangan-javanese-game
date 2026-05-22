@@ -52,14 +52,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // Load configuration assets, texts, positions & dynamic elements
   function initGameAssets() {
     // Parallax background texture
-    if (bgSkyImg && config.assets.background) {
-      bgSkyImg.src = config.assets.background;
+    if (config.assets.background) {
+      if (bgSkyImg) {
+        bgSkyImg.src = config.assets.background;
+      }
+      if (coverPage) {
+        coverPage.style.backgroundImage = `url('${config.assets.background}')`;
+      }
+      // Dynamically override body::before background-image for desktop blur
+      const styleEl = document.createElement("style");
+      styleEl.innerHTML = `@media (min-width: 1024px) { body::before { background-image: url('${config.assets.background}') !important; } }`;
+      document.head.appendChild(styleEl);
     }
     
     // Set floor path ground texture
     const groundTiles = document.getElementById("ground-tiles");
     if (groundTiles && config.assets.floor) {
       groundTiles.src = config.assets.floor;
+    }
+    const coverGrass = document.querySelector(".cover-grass-floor");
+    if (coverGrass && config.assets.floor) {
+      coverGrass.style.backgroundImage = `url('${config.assets.floor}')`;
     }
     
     // Set character default images
