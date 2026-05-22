@@ -154,6 +154,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const el = document.querySelector(`[data-milestone-id="${m.id}"]`);
       if (el) {
         el.style.left = `${m.pos}px`;
+        if (m.bottom !== undefined) {
+          el.style.bottom = m.bottom;
+        }
         const img = el.querySelector("img:not(.dialog-box):not(.cat-object)");
         if (img && m.imgUrl) {
           img.src = m.imgUrl;

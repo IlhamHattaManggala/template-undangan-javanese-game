@@ -201,6 +201,7 @@ window.weddingConfig = {
     {
       id: "wood-bird",
       pos: 400,
+      bottom: "5%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/mailbox.png",
       width: 140,
       height: 180,
@@ -211,6 +212,7 @@ window.weddingConfig = {
     {
       id: "welcome",
       pos: 750,
+      bottom: "7%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/parkinfo.png",
       width: 140,
       height: 180,
@@ -221,6 +223,7 @@ window.weddingConfig = {
     {
       id: "gallery",
       pos: 1210,
+      bottom: "3%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/crew.png",
       width: 170,
       height: 180,
@@ -230,7 +233,8 @@ window.weddingConfig = {
     },
     {
       id: "gift",
-      pos: 1500,
+      pos: 1515,
+      bottom: "3%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/gift.png",
       width: 120,
       height: 140,
@@ -240,7 +244,8 @@ window.weddingConfig = {
     },
     {
       id: "wedding-easel",
-      pos: 1780,
+      pos: 1670,
+      bottom: "3%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/wedding_sign.png",
       width: 160,
       height: 190,
@@ -249,7 +254,8 @@ window.weddingConfig = {
     },
     {
       id: "mempelai",
-      pos: 1950,
+      pos: 1810,
+      bottom: "3%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/couple.png",
       width: 160,
       height: 180,
