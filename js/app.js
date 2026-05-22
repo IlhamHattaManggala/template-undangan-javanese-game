@@ -282,10 +282,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     
-    // Hide speech bubble immediately when walking/scrolling starts
-    if (speechBubble) {
-      speechBubble.classList.remove("active");
-    }
+    // Evaluate proximity in real-time during scroll
+    checkMilestoneProximity(virtualPlayerX);
     
     lastScrollLeft = scrollLeft;
     
@@ -305,12 +303,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentActive = null;
     
     // Prioritize mempelai (bride & groom) at the end of the map so its bubble shows early and doesn't get overridden by easel
-    if (virtualPlayerX >= 1950) {
+    if (virtualPlayerX >= 2050) {
       currentActive = config.milestones.find(m => m.id === "mempelai");
     }
     
     if (!currentActive) {
-      const threshold = 120;
+      const threshold = 160;
       config.milestones.forEach(m => {
         if (m.id !== "mempelai") {
           const dist = Math.abs(virtualPlayerX - m.pos);
