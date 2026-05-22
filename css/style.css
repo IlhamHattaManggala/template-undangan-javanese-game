@@ -50,7 +50,7 @@ body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background: url('https://cdn-uploads.owlink.id/contenful/game-java/bg.png') no-repeat center bottom;
   background-size: cover;
   z-index: 1000;
@@ -142,6 +142,7 @@ body {
 .cover-monument-img {
   height: 100%;
   width: auto;
+  max-width: none !important;
   object-fit: contain;
   pointer-events: none;
 }
@@ -207,7 +208,7 @@ body {
 .game-box-wrapper {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   margin: 0 auto;
   overflow: hidden;
   background-color: #0b0705;
@@ -1093,7 +1094,7 @@ body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background: rgba(11, 7, 5, 0.85);
   backdrop-filter: blur(5px);
   z-index: 2000;
