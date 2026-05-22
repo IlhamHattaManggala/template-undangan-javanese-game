@@ -14,9 +14,12 @@ Berikut adalah tata letak berkas di dalam project ini:
 TemplateUndanganGame/
 │
 ├── index.html          # Kerangka HTML utama dan struktur dasar viewport game
-├── qris_mock.png       # Gambar dummy QRIS untuk kado digital (dapat diganti)
 ├── Requirements.txt    # Catatan kebutuhan & brief asli klien
 ├── README.md           # Panduan penggunaan & dokumentasi teknis ini
+│
+├── img/
+│   ├── qris_mock.png   # Gambar dummy QRIS untuk kado digital
+│   └── twilight_bg.png # Background langit twilight
 │
 ├── css/
 │   └── style.css       # Pengaturan gaya visual, animasi pixel art, & modal glassmorphism
@@ -76,7 +79,7 @@ Karena project ini adalah website statis murni, Anda bisa meng-hosting-nya denga
 
 ### Hosting di Shared Hosting (cPanel)
 
-1.  **Ekstrak/ZIP file project:** Satukan berkas `index.html`, `qris_mock.png`, folder `css/`, dan folder `js/` ke dalam file `.zip`.
+1.  **Ekstrak/ZIP file project:** Satukan berkas `index.html`, folder `img/`, folder `css/`, dan folder `js/` ke dalam file `.zip`.
 2.  **Upload ke File Manager:** Masuk ke cPanel, buka **File Manager**, dan masuk ke direktori **`public_html`** (atau folder subdomain Anda). Upload file `.zip` tadi dan lakukan **Extract** langsung di folder tersebut.
 3.  **PENTING - Hapus `index.php`:** Jika domain Anda sebelumnya menggunakan WordPress/Elementor, biasanya terdapat sisa file kosong bernama **`index.php`** di hosting Anda. **Hapus file `index.php` tersebut** agar server hosting memprioritaskan pemuatan `index.html` game Anda.
 4.  **Aktifkan SSL (HTTPS):** Aktifkan sertifikat SSL (Let's Encrypt gratis di cPanel) pada domain Anda. **Fitur Salin Nomor Rekening (Copy Clipboard)** dan **Autoplay Musik** hanya didukung pada protokol HTTPS demi keamanan browser.

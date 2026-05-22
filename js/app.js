@@ -1362,7 +1362,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="gift-details-thanks">Terima Kasih, ${name}!</div>
               <p style="font-size: 0.95rem; color: #4b5563; margin-bottom: 10px;">Silakan pindai kode QRIS di bawah ini untuk mentransfer kado:</p>
               <div class="qris-image-wrapper">
-                <img src="qris_mock.png" alt="QRIS QR Code">
+                <img src="img/qris_mock.png" alt="QRIS QR Code">
               </div>
               <div class="gift-details-back-link">&larr; Kembali</div>
             </div>
