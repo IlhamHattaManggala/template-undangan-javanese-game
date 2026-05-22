@@ -201,7 +201,7 @@ window.weddingConfig = {
     {
       id: "wood-bird",
       pos: 400,
-      bottom: "3%",
+      bottom: "2.5%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/mailbox.png",
       width: 140,
       height: 180,
@@ -212,7 +212,7 @@ window.weddingConfig = {
     {
       id: "welcome",
       pos: 750,
-      bottom: "5%",
+      bottom: "4.5%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/parkinfo.png",
       width: 140,
       height: 180,
