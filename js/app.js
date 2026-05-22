@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
       // Bridge Arc Logic
       const bridgeStart = 880;
-      const bridgeEnd = 1130;
+      const bridgeEnd = 1090;
       if (virtualPlayerX > bridgeStart && virtualPlayerX < bridgeEnd) {
         const bridgeCenter = (bridgeStart + bridgeEnd) / 2;
         const bridgeWidth = bridgeEnd - bridgeStart;
