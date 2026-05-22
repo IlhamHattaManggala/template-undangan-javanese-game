@@ -130,16 +130,14 @@ body {
   transform: translateX(-50%);
   width: 100%;
   max-width: 440px;
-  height: 68vh;
+  height: 68%;
   max-height: 580px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
   z-index: 5;
 }
 
 .cover-monument-img {
+  display: block;
+  margin: 0 auto;
   height: 100%;
   width: auto;
   max-width: none !important;
