@@ -327,7 +327,7 @@ body {
   width: 35vw;
   max-width: 170px;
   height: 180px;
-  left: 36vw;
+  left: 36%;
   bottom: 23vh;
   pointer-events: none;
   touch-action: none;
@@ -910,7 +910,7 @@ body {
 .speech-bubble {
   position: fixed;
   bottom: 42vh;
-  left: 36vw;
+  left: 36%;
   transform: translateX(-20%) scale(0);
   width: 260px;
   height: 100px;
@@ -2653,6 +2653,117 @@ body {
 
 .modal-card.story-light-theme .modal-body h4 {
   color: #2b1b11 !important;
+}
+
+/* ========================================== */
+/* 10. PREMIUM DESKTOP WIDESCREEN BOX         */
+/* ========================================== */
+@media (min-width: 1024px) {
+  /* Blurred atmospheric sky background behind game box */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: -30px;
+    background: url('https://cdn-uploads.owlink.id/contenful/game-java/bg.png') no-repeat center center;
+    background-size: cover;
+    filter: blur(25px) brightness(0.3);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Centered 16:9 Retro Console Game Box */
+  .container-game-landscape {
+    width: 960px !important;
+    height: 540px !important;
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    border-radius: 14px;
+    border: 3px solid rgba(255, 160, 174, 0.35);
+    box-shadow:
+      0 25px 80px rgba(0, 0, 0, 0.7),
+      0 0 40px rgba(255, 160, 174, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    z-index: 1;
+  }
+
+  /* Cover page matches game box dimensions */
+  #cover-page {
+    width: 960px !important;
+    height: 540px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    border-radius: 14px;
+    overflow: hidden !important;
+  }
+
+  /* Scale cover internals for the smaller box */
+  .cover-typography {
+    margin-top: 3vh;
+  }
+  .cover-names {
+    font-size: 2.8rem;
+  }
+  .cover-monument {
+    height: 55%;
+    max-height: 340px;
+  }
+
+  /*
+   * CRITICAL: Override vh → % for fixed elements inside the
+   * transformed container. The transform on .container-game-landscape
+   * creates a new containing block, making position:fixed children
+   * behave like position:absolute relative to the 960x540 box.
+   * vh/vw units still reference the viewport, so we must use %
+   * (which now reference the container) to keep proportions correct.
+   */
+  .m-character {
+    bottom: 23% !important;
+    width: 130px !important;
+  }
+  .container-game-landscape.onStart .m-character {
+    bottom: 3% !important;
+  }
+
+  .speech-bubble {
+    bottom: 42% !important;
+  }
+  .container-game-landscape.onStart .speech-bubble {
+    bottom: 22% !important;
+  }
+
+  /* Ensure sky background fills the box + parallax scroll range */
+  .bg-game img {
+    min-width: calc(100% + 250px);
+    height: 120%;
+    top: -15%;
+  }
+
+  /* Compact navigation arrows for smaller box */
+  .arrow-left,
+  .arrow-right {
+    width: 44px;
+    height: 44px;
+    bottom: 10%;
+  }
+  .arrow-left svg,
+  .arrow-right svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Music toggle subtle sizing */
+  .music-toggle {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    right: 10px;
+  }
+  .music-disc {
+    font-size: 1.3rem;
+  }
 }
 
 /* Ensure modal-overlay allows scrolling for low height screens */

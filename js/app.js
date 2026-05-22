@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Viewport Resize & Dynamic Scrolling Width Setup ---
   function updateScrollBounds() {
-    const W = window.innerWidth;
+    const W = gameContainer.clientWidth || window.innerWidth;
     const M = config.engine.mapWidth || 3200;
     // Set scrollForcer width so character can walk exactly from left end to right end
     if (scrollForcer) {
@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
       hasStartedWalking = true;
     }
 
-    const W = window.innerWidth;
+    const W = gameContainer.clientWidth || window.innerWidth;
     const virtualPlayerX = scrollLeft + W * 0.36;
     
     // Apply exact translate3d offset to map elements
@@ -411,7 +411,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Smooth scroll camera view port directly to selected landmark
   function scrollToMilestone(milestone) {
-    const W = window.innerWidth;
+    const W = gameContainer.clientWidth || window.innerWidth;
     const targetScrollLeft = Math.max(0, Math.min(milestone.pos - W * 0.36, config.engine.mapWidth - W * 0.36));
     
     gameContainer.scrollTo({
