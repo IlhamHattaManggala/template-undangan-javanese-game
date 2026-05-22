@@ -767,43 +767,56 @@ document.addEventListener("DOMContentLoaded", () => {
       if (modalContainer) {
         modalContainer.classList.add("story-light-theme");
       }
+      
+      const storyTitle = config.story?.title || "Our Love Story";
+      const preciousTitle = config.story?.preciousMomentTitle || "Precious moment";
+      const preciousText = config.story?.preciousMomentText || `"Creating memories is a priceless gift. Memories last a lifetime; objects last only a short time."`;
+      
+      let chaptersHtml = "";
+      const chapters = config.story?.chapters || [
+        {
+          title: "The Beginning",
+          description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, maxime dolor, dolorum recusandae odit quae nostrum cumque asperiores natus repellat",
+          imgUrl: "https://cdn-uploads.owlink.id/acf11590-4e7f-11f1-b4e7-09dce495479a.jpg"
+        },
+        {
+          title: "First Date",
+          description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, maxime dolor, dolorum recusandae odit quae nostrum cumque asperiores natus repellat enim architecto",
+          imgUrl: "https://cdn-uploads.owlink.id/acf11590-4e7f-11f1-b4e7-09dce495479a.jpg"
+        },
+        {
+          title: "The Proposal",
+          description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, maxime dolor, dolorum recusandae odit quae nostrum cumque asperiores natus repellat enim architecto",
+          imgUrl: "https://cdn-uploads.owlink.id/acf11590-4e7f-11f1-b4e7-09dce495479a.jpg"
+        },
+        {
+          title: "Our Wedding",
+          description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, maxime dolor, dolorum recusandae odit quae nostrum cumque asperiores natus repellat enim architecto",
+          imgUrl: "https://cdn-uploads.owlink.id/acf11590-4e7f-11f1-b4e7-09dce495479a.jpg"
+        }
+      ];
+      
+      chapters.forEach(ch => {
+        chaptersHtml += `
+          <div style="width: 100%;">
+            <img src="${ch.imgUrl}" style="width: 100%; height: auto; display: block;" alt="${ch.title}">
+            <div style="padding: 20px; text-align: center; background: white;">
+              <h4 style="font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: #555; margin-bottom: 10px;">${ch.title}</h4>
+              <p style="color: #b89c65; font-size: 0.95rem; margin-bottom: 0; line-height: 1.5;">${ch.description}</p>
+            </div>
+          </div>
+        `;
+      });
+
       contentHtml = `
         <div class="modal-header">
-          <h3 class="modal-title" style="font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: #111111; margin: 0; padding-top: 10px;">Our Love Story</h3>
+          <h3 class="modal-title" style="font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: #111111; margin: 0; padding-top: 10px;">${storyTitle}</h3>
         </div>
         <div class="modal-body" style="padding: 0; display: flex; flex-direction: column; overflow-y: auto;">
-          <div style="width: 100%;">
-            <img src="https://cdn-uploads.owlink.id/acf11590-4e7f-11f1-b4e7-09dce495479a.jpg" style="width: 100%; height: auto; display: block;" alt="The Beginning">
-            <div style="padding: 20px; text-align: center; background: white;">
-              <h4 style="font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: #555; margin-bottom: 10px;">The Beginning</h4>
-              <p style="color: #b89c65; font-size: 0.95rem; margin-bottom: 0; line-height: 1.5;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, maxime dolor, dolorum recusandae odit quae nostrum cumque asperiores natus repellat</p>
-            </div>
-          </div>
-          <div style="width: 100%;">
-            <img src="https://cdn-uploads.owlink.id/acf11590-4e7f-11f1-b4e7-09dce495479a.jpg" style="width: 100%; height: auto; display: block;" alt="First Date">
-            <div style="padding: 20px; text-align: center; background: white;">
-              <h4 style="font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: #555; margin-bottom: 10px;">First Date</h4>
-              <p style="color: #b89c65; font-size: 0.95rem; margin-bottom: 0; line-height: 1.5;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, maxime dolor, dolorum recusandae odit quae nostrum cumque asperiores natus repellat enim architecto</p>
-            </div>
-          </div>
-          <div style="width: 100%;">
-            <img src="https://cdn-uploads.owlink.id/acf11590-4e7f-11f1-b4e7-09dce495479a.jpg" style="width: 100%; height: auto; display: block;" alt="The Proposal">
-            <div style="padding: 20px; text-align: center; background: white;">
-              <h4 style="font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: #555; margin-bottom: 10px;">The Proposal</h4>
-              <p style="color: #b89c65; font-size: 0.95rem; margin-bottom: 0; line-height: 1.5;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, maxime dolor, dolorum recusandae odit quae nostrum cumque asperiores natus repellat enim architecto</p>
-            </div>
-          </div>
-          <div style="width: 100%;">
-            <img src="https://cdn-uploads.owlink.id/acf11590-4e7f-11f1-b4e7-09dce495479a.jpg" style="width: 100%; height: auto; display: block;" alt="Our Wedding">
-            <div style="padding: 20px; text-align: center; background: white;">
-              <h4 style="font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: #555; margin-bottom: 10px;">Our Wedding</h4>
-              <p style="color: #b89c65; font-size: 0.95rem; margin-bottom: 0; line-height: 1.5;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et, maxime dolor, dolorum recusandae odit quae nostrum cumque asperiores natus repellat enim architecto</p>
-            </div>
-          </div>
+          ${chaptersHtml}
           <div style="padding: 30px 20px 40px; text-align: center; background: white; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
-            <h4 style="font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: #8c7335; margin-bottom: 15px;">Precious moment</h4>
-            <p style="color: #555; font-size: 0.9rem; margin-bottom: 20px; font-style: italic; line-height: 1.6;">"Creating memories is a priceless gift. Memories last a lifetime; objects last only a short time." *title and words can be edited in the gallery menu</p>
-            <p style="color: #333; font-size: 0.8rem; line-height: 1.4;">Anda Belum Mengupload gallery,<br>silahkan upload moment terbaikmu di <strong>Gallery Section</strong>.</p>
+            <h4 style="font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: #8c7335; margin-bottom: 15px;">${preciousTitle}</h4>
+            <p style="color: #555; font-size: 0.9rem; margin-bottom: 20px; font-style: italic; line-height: 1.6;">${preciousText}</p>
           </div>
         </div>
       `;
