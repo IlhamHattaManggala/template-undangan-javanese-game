@@ -1630,36 +1630,6 @@ body {
 /* ========================================== */
 /* 9. RESPONSIVE SCALE ADJUSTMENTS            */
 /* ========================================== */
-@media (max-width: 768px) {
-  .cover-typography {
-    margin-top: 14dvh;
-    transform: scale(1.25);
-  }
-
-  .cover-monument {
-    width: 135%;
-    max-width: 620px;
-    height: 82dvh;
-    max-height: none;
-    bottom: -35px;
-  }
-
-  .cover-monument-img {
-    height: 100%;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .cover-action-wrap {
-    top: 67%;
-  }
-
-  .btn-green-open {
-    font-size: 1.05rem;
-    padding: 11px 26px;
-  }
-}
-
 @media (min-width: 768px) {
   .mempelai-grid {
     flex-direction: row;
