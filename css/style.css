@@ -108,7 +108,6 @@ body {
   color: #ffffff;
   font-size: 2.2rem;
   -webkit-text-stroke: 1.5px #2b1b11;
-  text-stroke: 1.5px #2b1b11;
   text-shadow: none;
   filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.15));
   transform: translateY(-2px);
@@ -1044,6 +1043,7 @@ body {
   pointer-events: auto;
   transition: opacity 0.15s ease, transform 0.1s ease, background-color 0.15s ease, border-color 0.15s ease;
   -webkit-user-select: none;
+  user-select: none;
   -webkit-touch-callout: none;
   display: flex;
   justify-content: center;
