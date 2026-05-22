@@ -327,6 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (oldEl) oldEl.classList.remove("active");
         }
         
+        const wasActive = speechBubble && speechBubble.classList.contains("active");
         activeMilestone = currentActive;
         
         // Activate current milestone glow outline
@@ -336,18 +337,33 @@ document.addEventListener("DOMContentLoaded", () => {
         // Show interactive Speech dialogue box above character
         if (speechBubble && speechText) {
           if (activeMilestone.dialogText) {
-            speechText.innerHTML = activeMilestone.dialogText;
-            
-            const clickIndicator = speechBubble.querySelector(".click-indicator");
-            if (clickIndicator) {
-              if (activeMilestone.action === "openModal") {
-                clickIndicator.style.display = "block";
-                clickIndicator.innerText = isMobile ? "TAP bubble" : "TEKAN SPASI / KLIK";
-              } else {
-                clickIndicator.style.display = "none";
+            const updateBubbleContent = () => {
+              speechText.innerHTML = activeMilestone.dialogText;
+              
+              const clickIndicator = speechBubble.querySelector(".click-indicator");
+              if (clickIndicator) {
+                if (activeMilestone.action === "openModal") {
+                  clickIndicator.style.display = "block";
+                  clickIndicator.innerText = isMobile ? "TAP bubble" : "TEKAN SPASI / KLIK";
+                } else {
+                  clickIndicator.style.display = "none";
+                }
               }
+              speechBubble.classList.add("active");
+            };
+
+            if (wasActive) {
+              // Hide first for a smooth scale-down transition
+              speechBubble.classList.remove("active");
+              // Wait for scale-down transition, then update and show new text
+              setTimeout(() => {
+                if (activeMilestone === currentActive) {
+                  updateBubbleContent();
+                }
+              }, 150);
+            } else {
+              updateBubbleContent();
             }
-            speechBubble.classList.add("active");
           } else {
             speechBubble.classList.remove("active");
           }
