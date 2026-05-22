@@ -220,7 +220,7 @@ window.weddingConfig = {
     },
     {
       id: "gallery",
-      pos: 1250,
+      pos: 1180,
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/crew.png",
       width: 170,
       height: 180,
@@ -230,7 +230,7 @@ window.weddingConfig = {
     },
     {
       id: "gift",
-      pos: 1725,
+      pos: 1480,
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/gift.png",
       width: 120,
       height: 140,
