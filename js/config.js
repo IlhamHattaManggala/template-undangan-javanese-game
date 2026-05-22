@@ -181,7 +181,7 @@ window.weddingConfig = {
   // 10. ASET GAMBAR UTAMA GAME
   // =========================================================================
   assets: {
-    background: "img/twilight_bg.png",       // Background langit (parallax)
+    background: "img/prambanan.jfif",       // Background langit (parallax)
     floor: "https://cdn-uploads.owlink.id/contenful/game-java/landgame.png",      // Lantai / jalan berpijak
     characterIdle: "https://cdn-uploads.owlink.id/contenful/game-java/jawa_character.png", // Sprite karakter diam
     characterWalk: "https://cdn-uploads.owlink.id/contenful/game-java/jawa_character_walkanimation.gif", // GIF animasi berjalan
