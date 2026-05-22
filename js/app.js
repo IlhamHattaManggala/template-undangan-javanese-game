@@ -709,8 +709,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <h2 class="modal-welcome-guest">${guestName}</h2>
           
           <div class="modal-welcome-verse">
-            <div class="modal-welcome-arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</div>
-            <div class="modal-welcome-meaning">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir." (QS. Ar-Rum: 21)</div>
+            <div class="modal-welcome-arabic">${config.welcome?.arabic || ''}</div>
+            <div class="modal-welcome-meaning">${config.welcome?.meaning || ''}</div>
           </div>
           
           <h3 class="modal-welcome-names">${config.general.brideNickname} & ${config.general.groomNickname}</h3>
