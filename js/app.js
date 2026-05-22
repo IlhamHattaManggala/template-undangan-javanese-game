@@ -306,7 +306,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentActive = null;
     
     // Prioritize mempelai (bride & groom) at the end of the map so its bubble shows early and doesn't get overridden by easel
-    if (virtualPlayerX >= 2050) {
+    const thresholdMempelai = (config.engine.mapWidth || 2175) - 125;
+    if (virtualPlayerX >= thresholdMempelai) {
       currentActive = config.milestones.find(m => m.id === "mempelai");
     }
     
