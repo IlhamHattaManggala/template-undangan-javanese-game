@@ -119,14 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (coverGroom) coverGroom.innerText = config.general.groomNickname;
 
     if (coverDateDisplay) {
-      let rawDate = config.general.weddingDate;
-      if (rawDate.includes("Juli") && rawDate.includes("2026")) {
-        coverDateDisplay.innerText = "12 . 07 . 26";
-      } else if (rawDate.match(/^\d{1,2}\s*\.\s*\d{1,2}\s*\.\s*\d{2,4}$/)) {
-        coverDateDisplay.innerText = rawDate;
-      } else {
-        coverDateDisplay.innerText = rawDate.replace("Minggu, ", "").replace(/ /g, " . ");
-      }
+      coverDateDisplay.innerText = config.general.weddingDateFormatted || "12 . 07 . 26";
     }
     
     // Populate retro names and dates on landmarks and headers
@@ -137,15 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (labelBride) labelBride.innerText = config.general.brideNickname;
     if (labelGroom) labelGroom.innerText = config.general.groomNickname;
     if (labelWeddingDate) {
-      // Format as DD . MM . YY matching the cover page calligraphy style
-      let rawDate = config.general.weddingDate;
-      if (rawDate.includes("Juli") && rawDate.includes("2026")) {
-        labelWeddingDate.innerText = "12 . 07 . 26";
-      } else if (rawDate.match(/^\d{1,2}\s*\.\s*\d{1,2}\s*\.\s*\d{2,4}$/)) {
-        labelWeddingDate.innerText = rawDate;
-      } else {
-        labelWeddingDate.innerText = rawDate.replace("Minggu, ", "").replace(/ /g, " . ");
-      }
+      labelWeddingDate.innerText = config.general.weddingDateFormatted || "12 . 07 . 26";
     }
 
     const signBride = document.getElementById("sign-bride");
@@ -154,7 +139,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (signBride) signBride.innerText = config.general.brideNickname;
     if (signGroom) signGroom.innerText = config.general.groomNickname;
-    if (signDate) signDate.innerText = config.general.weddingDate.replace("Minggu, ", "");
+    if (signDate) {
+      signDate.innerText = config.general.weddingDateFormatted || config.general.weddingDate.replace("Minggu, ", "");
+    }
 
     const easelBride = document.getElementById("easel-bride");
     const easelGroom = document.getElementById("easel-groom");
@@ -163,14 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (easelBride) easelBride.innerText = config.general.brideNickname + " &";
     if (easelGroom) easelGroom.innerText = config.general.groomNickname;
     if (easelDate) {
-      let rawDate = config.general.weddingDate;
-      if (rawDate.includes("Juli") && rawDate.includes("2026")) {
-        easelDate.innerText = "12 . 07 . 26";
-      } else if (rawDate.match(/^\d{1,2}\s*\.\s*\d{1,2}\s*\.\s*\d{2,4}$/)) {
-        easelDate.innerText = rawDate;
-      } else {
-        easelDate.innerText = rawDate.replace("Minggu, ", "").replace(/ /g, " . ");
-      }
+      easelDate.innerText = config.general.weddingDateFormatted || "12 . 07 . 26";
     }
 
     // Position landmarks based on config pos configuration
@@ -693,15 +673,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const guestParam = urlParams.get("to") || urlParams.get("u");
       const guestName = guestParam ? decodeURIComponent(guestParam) : config.cover.guestNameFallback;
       
-      let rawDate = config.general.weddingDate;
-      let displayDate = "";
-      if (rawDate.includes("Juli") && rawDate.includes("2026")) {
-        displayDate = "12 . 07 . 2026";
-      } else if (rawDate.match(/^\d{1,2}\s*\.\s*\d{1,2}\s*\.\s*\d{2,4}$/)) {
-        displayDate = rawDate;
-      } else {
-        displayDate = rawDate.replace("Minggu, ", "").replace(/ /g, " . ");
-      }
+      let displayDate = config.general.weddingDateFormattedFull || "12 . 07 . 2026";
       
       contentHtml = `
         <div class="modal-welcome-content">

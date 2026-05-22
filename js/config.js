@@ -9,6 +9,8 @@ window.weddingConfig = {
     brideNickname: "Laras",
     groomNickname: "Bimo",
     weddingDate: "Minggu, 12 Juli 2026",
+    weddingDateFormatted: "12 . 07 . 26",     // Format tanggal pendek ala retro (contoh: DD . MM . YY)
+    weddingDateFormattedFull: "12 . 07 . 2026", // Format tanggal panjang ala retro (contoh: DD . MM . YYYY)
     musicUrl: "https://api.owlink.id/uploads/ce2eaab0-4d85-11f1-8e56-e3393a795bd9.mp3",
     hashtag: "#BimoLarasMenikah",
   },
