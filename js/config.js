@@ -49,7 +49,7 @@ window.weddingConfig = {
     title: "Our Love Story",                     // Judul modal cerita cinta
     preciousMomentTitle: "Precious moment",     // Judul bagian penutup modal
     preciousMomentText: `"Creating memories is a priceless gift. Memories last a lifetime; objects last only a short time."`, // Pesan penutup modal
-    
+
     // Daftar babak cerita cinta. Anda bisa menambah, mengurangi, atau mengganti teks & fotonya.
     chapters: [
       {
@@ -138,7 +138,7 @@ window.weddingConfig = {
   mempelai: {
     title: "Kedua Mempelai",
     description: "Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami:",
-    
+
     bride: {
       name: "Rara Larasati, S.Ds.",
       father: "Bapak H. Joko Susilo",
@@ -205,7 +205,7 @@ window.weddingConfig = {
       width: 140,
       height: 180,
       action: "openModal",
-      dialogText: "Wah, ada surat apa ini? Yuk kita baca! ✉️", // Muncul di bubble chat saat karakter mendekat
+      dialogText: "Wah, ada surat apa ini? Yuk kita baca!", // Muncul di bubble chat saat karakter mendekat
       modalId: "modal-welcome"
     },
     {
@@ -215,7 +215,7 @@ window.weddingConfig = {
       width: 140,
       height: 180,
       action: "openModal",
-      dialogText: "Lihat kisah perjalanan cinta kami di sini! 💖",
+      dialogText: "Lihat kisah perjalanan cinta kami di sini!",
       modalId: "modal-story"
     },
     {
@@ -225,7 +225,7 @@ window.weddingConfig = {
       width: 170,
       height: 180,
       action: "openModal",
-      dialogText: "Jangan lupa konfirmasi kehadiranmu di sini ya! 📅",
+      dialogText: "Jangan lupa konfirmasi kehadiranmu di sini ya!",
       modalId: "modal-rsvp",
     },
     {
@@ -235,7 +235,7 @@ window.weddingConfig = {
       width: 120,
       height: 140,
       action: "openModal",
-      dialogText: "Ingin mengirimkan kado pernikahan digital? Ketuk di sini 🎁",
+      dialogText: "Ingin mengirimkan kado pernikahan digital? Ketuk di sini",
       modalId: "modal-gift"
     },
     {
@@ -245,7 +245,7 @@ window.weddingConfig = {
       width: 160,
       height: 190,
       action: "none",
-      dialogText: "Sebentar lagi sampai di pelaminan! Yuk jalan terus! 🤵‍♂️👰‍♀️"
+      dialogText: "Sebentar lagi sampai di pelaminan! Yuk jalan terus!"
     },
     {
       id: "mempelai",
@@ -254,7 +254,7 @@ window.weddingConfig = {
       width: 160,
       height: 180,
       action: "openModal",
-      dialogText: "Halo! Terima kasih banyak sudah datang! Click kami untuk menyapa 🤝",
+      dialogText: "Halo! Terima kasih banyak sudah datang! Click kami untuk menyapa",
       modalId: "modal-mempelai"
     }
   ],
