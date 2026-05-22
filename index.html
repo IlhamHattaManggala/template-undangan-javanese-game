@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <title>Undangan Pernikahan Laras & Bimo - Javanese Game Adventure</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Gabunglah dalam petualangan 2D retro interaktif pernikahan Laras & Bimo. Buka undangan sekarang untuk melihat detail Akad, Resepsi, Galeri, dan Buku Tamu!">
+  <meta name="keywords"
+    content="undangan digital, undangan game, 2d side scrolling, undangan nikah retro, pixel art invitation, javanese wedding game">
+  <meta property="og:title" content="Undangan Pernikahan Laras & Bimo - Javanese Game">
+  <meta property="og:description" content="Gabunglah dalam petualangan 2D retro interaktif pernikahan Laras & Bimo.">
+  <meta property="og:image" content="https://cdn-uploads.owlink.id/acf11590-4e7f-11f1-b4e7-09dce495479a.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=59">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://cdn-uploads.owlink.id/contenful/game-java/love.png">
+</head>
+
+<body>
+
+  <!-- ========================================== -->
+  <!-- 1. COVER PAGE (LAYAR PEMBUKA)             -->
+  <!-- ========================================== -->
+  <header id="cover-page">
+    <!-- Top Calligraphy & Date Block -->
+    <div class="cover-typography">
+      <p class="cover-pre-title">The Wedding Of</p>
+      <div class="cover-names">
+        <div class="cover-bride-wrap">
+          <span id="cover-bride">Laras</span> <span class="cover-heart">♥</span>
+        </div>
+        <div class="cover-groom-wrap">
+          <span id="cover-groom">Bimo</span>
+        </div>
+      </div>
+      <p class="cover-date" id="cover-date-display">12 . 07 . 26</p>
+    </div>
+
+    <!-- Center Monument Layer (Temple + Javanese Couple monument) -->
+    <div class="cover-monument">
+      <img src="https://cdn-uploads.owlink.id/contenful/game-java/couple.png" alt="Wedding Monument"
+        class="cover-monument-img pixelated">
+
+      <!-- Open Invitation button overlaying the temple -->
+      <div class="cover-action-wrap">
+        <button class="btn-green-open" id="btn-buka">open invitation</button>
+      </div>
+    </div>
+
+    <!-- Repeating Pixelated Grass Strip at very bottom -->
+    <div class="cover-grass-floor"></div>
+
+    <!-- Hidden compatibility div for existing app.js DOM queries -->
+    <div class="guest-box-hidden" style="display: none;">
+      <span id="guest-title">Kepada Yth. Bapak/Ibu/Saudara/i</span>
+      <span id="guest-name">Tamu Undangan</span>
+      <span id="cover-title">THE WEDDING INVITATION</span>
+      <span id="cover-subtitle">A 2D Side-Scrolling Adventure</span>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 2. GAME CONTAINER (INTERACTIVE INVITE)     -->
+  <!-- ========================================== -->
+  <main class="container-game-landscape game-java onStart" id="game-container">
+
+    <!-- Left & Right Overlay Borders -->
+    <div class="overlay-left"></div>
+    <div class="overlay-right"></div>
+
+    <!-- Audio Source Elements -->
+    <audio id="music_source" loop="loop"></audio>
+
+    <!-- Loading Screen Overlays -->
+    <div class="load-overlay" style="display: none;"></div>
+    <span class="now-loading" style="display: none;">Now Loading...</span>
+
+    <!-- Ambient / Action Speech Bubbles Wrapper -->
+    <div class="action-wrapper" style="display:none;"></div>
+
+    <!-- Elegant Calligraphy Title in Game Viewport -->
+    <div class="title-game">
+      <p class="cover-pre-title">The Wedding Of</p>
+      <div class="cover-names">
+        <div class="cover-bride-wrap">
+          <span id="label-bride">Laras</span> <span class="cover-heart">♥</span>
+        </div>
+        <div class="cover-groom-wrap">
+          <span id="label-groom">Bimo</span>
+        </div>
+      </div>
+      <p class="cover-date" id="label-wedding-date">12 . 07 . 26</p>
+    </div>
+
+    <!-- Copyright / Watermark -->
+    <div class="mark-copyright">
+      Our Wedding Link @ 2026
+    </div>
+
+    <!-- Active Quest Checklists -->
+    <div class="quest-game" id="quest-board">
+      <h5 class="font-content">Selesaikan misi ini:</h5>
+      <ul>
+        <li class="font-content" id="quest-item-mailbox">
+          <span class="status"><img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' style='image-rendering:pixelated;shape-rendering:crispEdges;'><rect x='0' y='0' width='16' height='16' rx='3' fill='%232b1b11' stroke='%23ffa0ae' stroke-width='2'/><path d='M8 3L12 11H4Z' fill='%23ffd54f'/><rect x='7' y='6' width='2' height='3' fill='%232b1b11'/><rect x='7' y='10' width='2' height='1' fill='%232b1b11'/></svg>"
+              alt="Pending" id="quest-icon-mailbox"></span> Buka Mailbox
+        </li>
+        <li class="font-content" id="quest-item-mempelai">
+          <span class="status"><img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' style='image-rendering:pixelated;shape-rendering:crispEdges;'><rect x='0' y='0' width='16' height='16' rx='3' fill='%232b1b11' stroke='%23ffa0ae' stroke-width='2'/><path d='M8 3L12 11H4Z' fill='%23ffd54f'/><rect x='7' y='6' width='2' height='3' fill='%232b1b11'/><rect x='7' y='10' width='2' height='1' fill='%232b1b11'/></svg>"
+              alt="Pending" id="quest-icon-mempelai"></span> Sapa Mempelai
+        </li>
+        <li class="font-content" id="quest-item-gift">
+          <span class="status"><img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' style='image-rendering:pixelated;shape-rendering:crispEdges;'><rect x='0' y='0' width='16' height='16' rx='3' fill='%232b1b11' stroke='%23ffa0ae' stroke-width='2'/><path d='M8 3L12 11H4Z' fill='%23ffd54f'/><rect x='7' y='6' width='2' height='3' fill='%232b1b11'/><rect x='7' y='10' width='2' height='1' fill='%232b1b11'/></svg>"
+              alt="Pending" id="quest-icon-gift"></span> Kunjungi Kado Pernikahan
+        </li>
+      </ul>
+    </div>
+
+    <!-- On-screen Floating Music Controller Disk -->
+    <button class="music-toggle" id="music-toggle" aria-label="Toggle Music Player">
+      <span class="music-disc" id="music-disc-icon">💿</span>
+    </button>
+
+    <!-- On-screen Mobile Touch Controller Arrows -->
+    <nav class="navigation-wrap" id="touch-controls">
+      <div id="up" class="arrow-left" role="button" aria-label="Walk Left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+      </div>
+      <div id="down" class="arrow-right" role="button" aria-label="Walk Right">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+    </nav>
+
+    <!-- Helper Scroll-Forcer (Generates Native Horizontal Scroll Range) -->
+    <div class="scrollheight" id="scroll-forcer"></div>
+
+    <!-- Sky Parallax Background Layer -->
+    <div class="bg-game" id="parallax-bg-layer">
+      <img src="https://cdn-uploads.owlink.id/contenful/game-java/bg.png" alt="Game Background" id="bg-sky-img"
+        class="pixelated">
+    </div>
+
+    <!-- Main Player Character Sprite (Sibling of frame-landscape to avoid translate3d scale and relative-position bugs) -->
+    <div class="m-character" id="main-player">
+      <img src="https://cdn-uploads.owlink.id/contenful/game-java/jawa_character.png" alt="Stand Sprite"
+        class="stand pixelated">
+      <img src="https://cdn-uploads.owlink.id/contenful/game-java/jawa_character_walkanimation.gif" alt="Walk Animation"
+        class="walk pixelated">
+    </div>
+
+    <!-- Fixed Floating Speech Bubble above Character -->
+    <div class="speech-bubble" id="speech-bubble">
+      <p id="speech-text">Selamat Datang! Silakan jalan ke kanan ya! 🚶‍♂️</p>
+      <span class="click-indicator" id="click-indicator">TAP bubble</span>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 2B. WIDE LANDSCAPE LAYOUT FRAME (SCROLLED) -->
+    <!-- ========================================== -->
+    <div class="frame-landscape" id="landscape-frame">
+
+      <!-- Guest Wishes Board (Hidden) -->
+      <div class="wish-list" id="wishes-bulletin-board" style="display:none;">
+        <!-- Will be filled with rsvp wishes from config.js -->
+      </div>
+
+      <!-- Landmark 1: Wedding Signpost (Papan Selamat Datang) -->
+      <div class="wedding-sign action-object" id="landmark-welcome" data-milestone-id="welcome">
+        <p class="w-text font-content mb-0">
+          <span id="sign-bride">Laras</span>
+          <span>&amp;</span>
+          <span style="display:block;" id="sign-groom">Bimo</span>
+          <span style="font-size: .6rem;" id="sign-date">12 . 07 . 2026</span>
+        </p>
+        <img src="https://cdn-uploads.owlink.id/contenful/game-java/dialog.png" alt="Notice indicator box cue"
+          class="dialog-box pixelated">
+        <img src="https://cdn-uploads.owlink.id/contenful/game-java/parkinfo.png" alt="Wedding Sign" class="pixelated">
+      </div>
+
+      <!-- Landmark 1.5: Wood Log & Bird (Modal Trigger) -->
+      <div class="mailbox action-object" id="landmark-wood-bird" data-milestone-id="wood-bird">
+        <img src="https://cdn-uploads.owlink.id/contenful/game-java/dialog.png" alt="Notice indicator box cue"
+          class="dialog-box pixelated">
+        <img src="https://cdn-uploads.owlink.id/contenful/game-java/mailbox.png" alt="Wood Log and Bird"
+          class="pixelated">
+      </div>
+
+      <div class="crew action-object" id="landmark-gallery" data-milestone-id="gallery">
+        <div class="dialog-bubble">RSVP</div>
+        <img src="https://cdn-uploads.owlink.id/contenful/game-java/crew.png" alt="Crew Member Guide" class="pixelated">
+      </div>
+
+      <!-- Landmark 5: Bride & Groom Monument (Mempelai Intro) -->
+      <div class="couple-wedding action-object" id="landmark-mempelai" data-milestone-id="mempelai">
+        <div class="dialog-bubble">Hi! terima kasih<br>telah berkunjung</div>
+        <img src="https://cdn-uploads.owlink.id/contenful/game-java/couple.png" alt="Wedding Couple Monument"
+          class="pixelated">
+      </div>
+
+      <!-- Landmark 6: Digital Gift Envelope Box (Hadiah Kado) -->
+      <div class="gift action-object" id="landmark-gift" data-milestone-id="gift">
+        <img src="https://cdn-uploads.owlink.id/contenful/game-java/gift.png" alt="Gift Envelope Box" class="pixelated">
+      </div>
+
+      <!-- Landmark 7: Wedding Easel Sign -->
+      <div class="wedding-easel action-object" id="landmark-wedding-easel" data-milestone-id="wedding-easel">
+        <p class="easel-text mb-0">
+          <span id="easel-bride">Laras &</span>
+          <span id="easel-groom">Bimo</span>
+          <span id="easel-date">12 . 07 . 2026</span>
+        </p>
+        <img src="https://cdn-uploads.owlink.id/contenful/game-java/wedding_sign.png" alt="Wedding Easel Sign"
+          class="pixelated">
+      </div>
+      <div class="cat action-object" id="entity-bee">
+        <div class="dialog-box">
+          <img src="https://cdn-uploads.owlink.id/contenful/game-java/cat_dialog.png" alt="Bee dialogue balloon"
+            class="pixelated">
+        </div>
+        <img src="https://cdn-uploads.owlink.id/contenful/game-java/bee.png" alt="Decorative Bee"
+          class="cat-object pixelated">
+      </div>
+
+      <!-- Decorative Entity: Walking Chick (Dekorasi Anak Ayam) -->
+      <div class="chick" id="entity-chick">
+        <img src="https://cdn-uploads.owlink.id/contenful/game-java/chick.gif" alt="Decorative Walking Chick"
+          class="chick-object pixelated">
+      </div>
+
+      <!-- Ground Pathway Layer (walkable floor tiles) -->
+      <img src="https://cdn-uploads.owlink.id/contenful/game-java/landgame.png" alt="Ground pathway tiles"
+        class="gameland pixelated" id="ground-tiles">
+
+    </div>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- 3. PREMIUM GAME MODALS OVERLAYS SYSTEM     -->
+  <!-- ========================================== -->
+  <section class="modal-overlay" id="modal-overlay">
+    <div class="modal-card" id="modal-container" role="dialog" aria-labelledby="modal-title">
+      <!-- Dynamic templates will be injected here from app.js -->
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. CORE ENGINE SCRIPTS                      -->
+  <!-- ========================================== -->
+  <script src="js/config.js?v=59"></script>
+  <script src="js/app.js?v=59"></script>
+
+</body>
+
+</html>
