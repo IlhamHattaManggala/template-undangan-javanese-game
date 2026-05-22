@@ -17,7 +17,7 @@
   <meta property="og:type" content="website">
 
   <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=85">
+  <link rel="stylesheet" href="css/style.css?v=86">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://cdn-uploads.owlink.id/contenful/game-java/love.png">
@@ -124,13 +124,15 @@
     <!-- On-screen Mobile Touch Controller Arrows -->
     <nav class="navigation-wrap" id="touch-controls">
       <div id="up" class="arrow-left" role="button" aria-label="Walk Left">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
         </svg>
       </div>
       <div id="down" class="arrow-right" role="button" aria-label="Walk Right">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
       </div>
     </nav>
@@ -171,86 +173,89 @@
           class="pixelated">
       </div>
 
-    <!-- ========================================== -->
-    <!-- 2B. WIDE LANDSCAPE LAYOUT FRAME (SCROLLED) -->
-    <!-- ========================================== -->
-    <div class="frame-landscape" id="landscape-frame">
+      <!-- ========================================== -->
+      <!-- 2B. WIDE LANDSCAPE LAYOUT FRAME (SCROLLED) -->
+      <!-- ========================================== -->
+      <div class="frame-landscape" id="landscape-frame">
 
-      <!-- Guest Wishes Board (Hidden) -->
-      <div class="wish-list" id="wishes-bulletin-board" style="display:none;">
-        <!-- Will be filled with rsvp wishes from config.js -->
-      </div>
+        <!-- Guest Wishes Board (Hidden) -->
+        <div class="wish-list" id="wishes-bulletin-board" style="display:none;">
+          <!-- Will be filled with rsvp wishes from config.js -->
+        </div>
 
-      <!-- Landmark 1: Wedding Signpost (Papan Selamat Datang) -->
-      <div class="wedding-sign action-object" id="landmark-welcome" data-milestone-id="welcome">
-        <p class="w-text font-content mb-0">
-          <span id="sign-bride">Laras</span>
-          <span>&amp;</span>
-          <span style="display:block;" id="sign-groom">Bimo</span>
-          <span style="font-size: .6rem;" id="sign-date">12 . 07 . 2026</span>
-        </p>
-        <img src="https://cdn-uploads.owlink.id/contenful/game-java/dialog.png" alt="Notice indicator box cue"
-          class="dialog-box pixelated">
-        <img src="https://cdn-uploads.owlink.id/contenful/game-java/parkinfo.png" alt="Wedding Sign" class="pixelated">
-      </div>
-
-      <!-- Landmark 1.5: Wood Log & Bird (Modal Trigger) -->
-      <div class="mailbox action-object" id="landmark-wood-bird" data-milestone-id="wood-bird">
-        <img src="https://cdn-uploads.owlink.id/contenful/game-java/dialog.png" alt="Notice indicator box cue"
-          class="dialog-box pixelated">
-        <img src="https://cdn-uploads.owlink.id/contenful/game-java/mailbox.png" alt="Wood Log and Bird"
-          class="pixelated">
-      </div>
-
-      <div class="crew action-object" id="landmark-gallery" data-milestone-id="gallery">
-        <div class="dialog-bubble">RSVP</div>
-        <img src="https://cdn-uploads.owlink.id/contenful/game-java/crew.png" alt="Crew Member Guide" class="pixelated">
-      </div>
-
-      <!-- Landmark 5: Bride & Groom Monument (Mempelai Intro) -->
-      <div class="couple-wedding action-object" id="landmark-mempelai" data-milestone-id="mempelai">
-        <div class="dialog-bubble">Hi! terima kasih<br>telah berkunjung</div>
-        <img src="https://cdn-uploads.owlink.id/contenful/game-java/couple.png" alt="Wedding Couple Monument"
-          class="pixelated">
-      </div>
-
-      <!-- Landmark 6: Digital Gift Envelope Box (Hadiah Kado) -->
-      <div class="gift action-object" id="landmark-gift" data-milestone-id="gift">
-        <img src="https://cdn-uploads.owlink.id/contenful/game-java/gift.png" alt="Gift Envelope Box" class="pixelated">
-      </div>
-
-      <!-- Landmark 7: Wedding Easel Sign -->
-      <div class="wedding-easel action-object" id="landmark-wedding-easel" data-milestone-id="wedding-easel">
-        <p class="easel-text mb-0">
-          <span id="easel-bride">Laras &</span>
-          <span id="easel-groom">Bimo</span>
-          <span id="easel-date">12 . 07 . 2026</span>
-        </p>
-        <img src="https://cdn-uploads.owlink.id/contenful/game-java/wedding_sign.png" alt="Wedding Easel Sign"
-          class="pixelated">
-      </div>
-      <div class="cat action-object" id="entity-bee">
-        <div class="dialog-box">
-          <img src="https://cdn-uploads.owlink.id/contenful/game-java/cat_dialog.png" alt="Bee dialogue balloon"
+        <!-- Landmark 1: Wedding Signpost (Papan Selamat Datang) -->
+        <div class="wedding-sign action-object" id="landmark-welcome" data-milestone-id="welcome">
+          <p class="w-text font-content mb-0">
+            <span id="sign-bride">Laras</span>
+            <span>&amp;</span>
+            <span style="display:block;" id="sign-groom">Bimo</span>
+            <span style="font-size: .6rem;" id="sign-date">12 . 07 . 2026</span>
+          </p>
+          <img src="https://cdn-uploads.owlink.id/contenful/game-java/dialog.png" alt="Notice indicator box cue"
+            class="dialog-box pixelated">
+          <img src="https://cdn-uploads.owlink.id/contenful/game-java/parkinfo.png" alt="Wedding Sign"
             class="pixelated">
         </div>
-        <img src="https://cdn-uploads.owlink.id/contenful/game-java/bee.png" alt="Decorative Bee"
-          class="cat-object pixelated">
+
+        <!-- Landmark 1.5: Wood Log & Bird (Modal Trigger) -->
+        <div class="mailbox action-object" id="landmark-wood-bird" data-milestone-id="wood-bird">
+          <img src="https://cdn-uploads.owlink.id/contenful/game-java/dialog.png" alt="Notice indicator box cue"
+            class="dialog-box pixelated">
+          <img src="https://cdn-uploads.owlink.id/contenful/game-java/mailbox.png" alt="Wood Log and Bird"
+            class="pixelated">
+        </div>
+
+        <div class="crew action-object" id="landmark-gallery" data-milestone-id="gallery">
+          <div class="dialog-bubble">RSVP</div>
+          <img src="https://cdn-uploads.owlink.id/contenful/game-java/crew.png" alt="Crew Member Guide"
+            class="pixelated">
+        </div>
+
+        <!-- Landmark 5: Bride & Groom Monument (Mempelai Intro) -->
+        <div class="couple-wedding action-object" id="landmark-mempelai" data-milestone-id="mempelai">
+          <div class="dialog-bubble">Hi! terima kasih<br>telah berkunjung</div>
+          <img src="https://cdn-uploads.owlink.id/contenful/game-java/couple.png" alt="Wedding Couple Monument"
+            class="pixelated">
+        </div>
+
+        <!-- Landmark 6: Digital Gift Envelope Box (Hadiah Kado) -->
+        <div class="gift action-object" id="landmark-gift" data-milestone-id="gift">
+          <img src="https://cdn-uploads.owlink.id/contenful/game-java/gift.png" alt="Gift Envelope Box"
+            class="pixelated">
+        </div>
+
+        <!-- Landmark 7: Wedding Easel Sign -->
+        <div class="wedding-easel action-object" id="landmark-wedding-easel" data-milestone-id="wedding-easel">
+          <p class="easel-text mb-0">
+            <span id="easel-bride">Laras &</span>
+            <span id="easel-groom">Bimo</span>
+            <span id="easel-date">12 . 07 . 2026</span>
+          </p>
+          <img src="https://cdn-uploads.owlink.id/contenful/game-java/wedding_sign.png" alt="Wedding Easel Sign"
+            class="pixelated">
+        </div>
+        <div class="cat action-object" id="entity-bee">
+          <div class="dialog-box">
+            <img src="https://cdn-uploads.owlink.id/contenful/game-java/cat_dialog.png" alt="Bee dialogue balloon"
+              class="pixelated">
+          </div>
+          <img src="https://cdn-uploads.owlink.id/contenful/game-java/bee.png" alt="Decorative Bee"
+            class="cat-object pixelated">
+        </div>
+
+        <!-- Decorative Entity: Walking Chick (Dekorasi Anak Ayam) -->
+        <div class="chick" id="entity-chick">
+          <img src="https://cdn-uploads.owlink.id/contenful/game-java/chick.gif" alt="Decorative Walking Chick"
+            class="chick-object pixelated">
+        </div>
+
+        <!-- Ground Pathway Layer (walkable floor tiles) -->
+        <img src="https://cdn-uploads.owlink.id/contenful/game-java/landgame.png" alt="Ground pathway tiles"
+          class="gameland pixelated" id="ground-tiles">
+
       </div>
 
-      <!-- Decorative Entity: Walking Chick (Dekorasi Anak Ayam) -->
-      <div class="chick" id="entity-chick">
-        <img src="https://cdn-uploads.owlink.id/contenful/game-java/chick.gif" alt="Decorative Walking Chick"
-          class="chick-object pixelated">
-      </div>
-
-      <!-- Ground Pathway Layer (walkable floor tiles) -->
-      <img src="https://cdn-uploads.owlink.id/contenful/game-java/landgame.png" alt="Ground pathway tiles"
-        class="gameland pixelated" id="ground-tiles">
-
-    </div>
-
-  </main>
+    </main>
   </div>
 
   <!-- ========================================== -->
@@ -265,8 +270,8 @@
   <!-- ========================================== -->
   <!-- 4. CORE ENGINE SCRIPTS                      -->
   <!-- ========================================== -->
-  <script src="js/config.js?v=85"></script>
-  <script src="js/app.js?v=85"></script>
+  <script src="js/config.js?v=86"></script>
+  <script src="js/app.js?v=86"></script>
 
 </body>
 

@@ -334,7 +334,7 @@ body {
   max-width: 170px;
   height: 180px;
   left: 36%;
-  bottom: 16vh;
+  bottom: 19vh;
   pointer-events: none;
   touch-action: none;
   transition: bottom 2.5s ease-in-out;
