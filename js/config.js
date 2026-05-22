@@ -241,7 +241,7 @@ window.weddingConfig = {
     {
       id: "wedding-easel",
       pos: 1950,
-      imgUrl: "https://cdn-uploads.owlink.id/contenful/game-sign/wedding_sign.png",
+      imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/wedding_sign.png",
       width: 160,
       height: 190,
       action: "none",
