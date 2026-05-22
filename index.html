@@ -70,21 +70,11 @@
   <!-- ========================================== -->
   <!-- 2. GAME CONTAINER (INTERACTIVE INVITE)     -->
   <!-- ========================================== -->
-  <main class="container-game-landscape game-java onStart" id="game-container">
+  <div class="game-box-wrapper" id="game-box-wrapper">
 
     <!-- Left & Right Overlay Borders -->
     <div class="overlay-left"></div>
     <div class="overlay-right"></div>
-
-    <!-- Audio Source Elements -->
-    <audio id="music_source" loop="loop"></audio>
-
-    <!-- Loading Screen Overlays -->
-    <div class="load-overlay" style="display: none;"></div>
-    <span class="now-loading" style="display: none;">Now Loading...</span>
-
-    <!-- Ambient / Action Speech Bubbles Wrapper -->
-    <div class="action-wrapper" style="display:none;"></div>
 
     <!-- Elegant Calligraphy Title in Game Viewport -->
     <div class="title-game">
@@ -146,28 +136,41 @@
       </div>
     </nav>
 
-    <!-- Helper Scroll-Forcer (Generates Native Horizontal Scroll Range) -->
-    <div class="scrollheight" id="scroll-forcer"></div>
-
-    <!-- Sky Parallax Background Layer -->
-    <div class="bg-game" id="parallax-bg-layer">
-      <img src="https://cdn-uploads.owlink.id/contenful/game-java/bg.png" alt="Game Background" id="bg-sky-img"
-        class="pixelated">
-    </div>
-
     <!-- Main Player Character Sprite (Sibling of frame-landscape to avoid translate3d scale and relative-position bugs) -->
     <div class="m-character" id="main-player">
       <img src="https://cdn-uploads.owlink.id/contenful/game-java/jawa_character.png" alt="Stand Sprite"
         class="stand pixelated">
       <img src="https://cdn-uploads.owlink.id/contenful/game-java/jawa_character_walkanimation.gif" alt="Walk Animation"
         class="walk pixelated">
+
+      <!-- Fixed Floating Speech Bubble above Character (nested to lock horizontal positioning) -->
+      <div class="speech-bubble" id="speech-bubble">
+        <p id="speech-text">Selamat Datang! Silakan jalan ke kanan ya! 🚶‍♂️</p>
+        <span class="click-indicator" id="click-indicator">TAP bubble</span>
+      </div>
     </div>
 
-    <!-- Fixed Floating Speech Bubble above Character -->
-    <div class="speech-bubble" id="speech-bubble">
-      <p id="speech-text">Selamat Datang! Silakan jalan ke kanan ya! 🚶‍♂️</p>
-      <span class="click-indicator" id="click-indicator">TAP bubble</span>
-    </div>
+    <!-- Scrollable Game Viewport -->
+    <main class="container-game-landscape game-java onStart" id="game-container">
+
+      <!-- Audio Source Elements -->
+      <audio id="music_source" loop="loop"></audio>
+
+      <!-- Loading Screen Overlays -->
+      <div class="load-overlay" style="display: none;"></div>
+      <span class="now-loading" style="display: none;">Now Loading...</span>
+
+      <!-- Ambient / Action Speech Bubbles Wrapper -->
+      <div class="action-wrapper" style="display:none;"></div>
+
+      <!-- Helper Scroll-Forcer (Generates Native Horizontal Scroll Range) -->
+      <div class="scrollheight" id="scroll-forcer"></div>
+
+      <!-- Sky Parallax Background Layer -->
+      <div class="bg-game" id="parallax-bg-layer">
+        <img src="https://cdn-uploads.owlink.id/contenful/game-java/bg.png" alt="Game Background" id="bg-sky-img"
+          class="pixelated">
+      </div>
 
     <!-- ========================================== -->
     <!-- 2B. WIDE LANDSCAPE LAYOUT FRAME (SCROLLED) -->
@@ -249,6 +252,7 @@
     </div>
 
   </main>
+  </div>
 
   <!-- ========================================== -->
   <!-- 3. PREMIUM GAME MODALS OVERLAYS SYSTEM     -->

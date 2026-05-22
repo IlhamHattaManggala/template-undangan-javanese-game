@@ -29,7 +29,7 @@ body {
   color: var(--color-text-light);
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
 }
 
 /* --- Image Rendering Optimization for Pixel Art --- */
@@ -202,12 +202,20 @@ body {
 }
 
 /* ========================================== */
-/* 2. GAME VIEWPORT CONTAINER & PARALLAX      */
+/* 2. GAME BOX WRAPPER & SCROLL VIEWPORT     */
 /* ========================================== */
-.container-game-landscape {
+.game-box-wrapper {
+  position: relative;
   width: 100vw;
   height: 100vh;
   margin: 0 auto;
+  overflow: hidden;
+  background-color: #0b0705;
+}
+
+.container-game-landscape {
+  width: 100%;
+  height: 100%;
   position: relative;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -230,7 +238,7 @@ body {
 /* Left & Right Viewport Border Overlays */
 .overlay-left,
 .overlay-right {
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   width: 15px;
@@ -321,7 +329,7 @@ body {
 /* 4. STATIONARY PLAYER CHARACTER (m-character)*/
 /* ========================================== */
 .m-character {
-  position: fixed;
+  position: absolute;
   z-index: 5;
   width: 35vw;
   max-width: 170px;
@@ -333,8 +341,8 @@ body {
   transition: bottom 2.5s ease-in-out;
 }
 
-.container-game-landscape.onStart .m-character {
-  bottom: 3vh;
+.game-box-wrapper .m-character {
+  /* Di dalam wrapper, bottom 23% / 3% digunakan */
 }
 
 .m-character img {
@@ -907,10 +915,11 @@ body {
 
 /* Interactive Dialogue Speech-bubble above player */
 .speech-bubble {
-  position: fixed;
-  bottom: 42vh;
-  left: 36%;
-  transform: translateX(-30%) scale(0);
+  position: absolute;
+  bottom: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  transform-origin: bottom center;
   width: 280px;
   min-height: 80px;
   height: auto;
@@ -923,8 +932,8 @@ body {
   letter-spacing: 0.3px;
   pointer-events: none;
   opacity: 0;
-  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease, bottom 2.5s ease-in-out;
-  
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
+
   /* Modern CSS speech bubble styling */
   background: #fffdf5;
   border: 3px solid #3d2617;
@@ -967,12 +976,8 @@ body {
   z-index: 2;
 }
 
-.container-game-landscape.onStart .speech-bubble {
-  bottom: 22vh;
-}
-
 .speech-bubble.active {
-  transform: translateX(-30%) scale(1);
+  transform: translateX(-50%) scale(1);
   opacity: 1;
   pointer-events: auto;
   cursor: pointer;
@@ -1001,6 +1006,7 @@ body {
   0% {
     margin-top: 0px;
   }
+
   100% {
     margin-top: -6px;
   }
@@ -1010,6 +1016,7 @@ body {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(-3px);
   }
@@ -1035,8 +1042,10 @@ body {
   width: 56px;
   height: 56px;
   opacity: 0.9;
-  background: rgba(0, 0, 0, 0.75); /* High-contrast rich dark glass background */
-  border: 2px solid rgba(255, 255, 255, 0.8); /* Solid white circular boundary */
+  background: rgba(0, 0, 0, 0.75);
+  /* High-contrast rich dark glass background */
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  /* Solid white circular boundary */
   border-radius: 50%;
   padding: 4px;
   cursor: pointer;
@@ -1070,7 +1079,8 @@ body {
 .arrow-left.onhold,
 .arrow-right.onhold {
   opacity: 1;
-  background: #000000; /* Pure black on press */
+  background: #000000;
+  /* Pure black on press */
   border-color: #ffffff;
   transform: scale(1.15);
 }
@@ -1788,7 +1798,8 @@ body {
   align-items: flex-start;
   text-align: left;
   font-family: 'Montserrat', sans-serif;
-  color: #374151; /* Dark grey */
+  color: #374151;
+  /* Dark grey */
   width: 100%;
   padding: 0 10px;
 }
@@ -1820,7 +1831,8 @@ body {
 }
 
 .modal-card.light-theme .rsvp-address-link {
-  color: #3b82f6; /* Blue link */
+  color: #3b82f6;
+  /* Blue link */
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
@@ -1870,7 +1882,8 @@ body {
 .modal-card.light-theme .btn-rsvp-agree {
   background: none;
   border: none;
-  color: #0d9488; /* Teal */
+  color: #0d9488;
+  /* Teal */
   font-family: 'Montserrat', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
@@ -1892,7 +1905,8 @@ body {
 .modal-card.light-theme .btn-rsvp-decline {
   background: none;
   border: none;
-  color: #9ca3af; /* Grey */
+  color: #9ca3af;
+  /* Grey */
   font-family: 'Montserrat', sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
@@ -1949,7 +1963,8 @@ body {
 .modal-card.light-theme .rsvp-form-input {
   width: 100%;
   padding: 12px 16px;
-  background-color: #efefef; /* Light grey input background */
+  background-color: #efefef;
+  /* Light grey input background */
   border: 1px solid transparent;
   border-radius: 8px;
   color: #1f2937;
@@ -1988,13 +2003,15 @@ body {
 }
 
 .modal-card.light-theme .rsvp-form-radio-label input[type="radio"] {
-  display: none; /* Hide default radio check button */
+  display: none;
+  /* Hide default radio check button */
 }
 
 .modal-card.light-theme .custom-radio {
   width: 20px;
   height: 20px;
-  border: 2px solid #f43f5e; /* Pink border outline */
+  border: 2px solid #f43f5e;
+  /* Pink border outline */
   border-radius: 50%;
   display: inline-block;
   position: relative;
@@ -2003,11 +2020,11 @@ body {
   box-sizing: border-box;
 }
 
-.modal-card.light-theme .rsvp-form-radio-label input[type="radio"]:checked + .custom-radio {
+.modal-card.light-theme .rsvp-form-radio-label input[type="radio"]:checked+.custom-radio {
   background: transparent;
 }
 
-.modal-card.light-theme .rsvp-form-radio-label input[type="radio"]:checked + .custom-radio::after {
+.modal-card.light-theme .rsvp-form-radio-label input[type="radio"]:checked+.custom-radio::after {
   content: "";
   position: absolute;
   top: 4px;
@@ -2015,12 +2032,14 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #f43f5e; /* Pink filled dot */
+  background-color: #f43f5e;
+  /* Pink filled dot */
 }
 
 .modal-card.light-theme .btn-rsvp-submit {
   width: 100%;
-  background-color: #6ebb39; /* Green button */
+  background-color: #6ebb39;
+  /* Green button */
   color: #ffffff;
   border: none;
   border-radius: 12px;
@@ -2047,7 +2066,8 @@ body {
 .modal-card.light-theme .btn-rsvp-cancel {
   background: none;
   border: none;
-  color: #3b82f6; /* Blue link */
+  color: #3b82f6;
+  /* Blue link */
   font-family: 'Montserrat', sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
@@ -2073,7 +2093,8 @@ body {
   right: -15px;
   width: 36px;
   height: 36px;
-  background: #ff453a; /* Circular red close button */
+  background: #ff453a;
+  /* Circular red close button */
   border: 3px solid #fff;
   border-radius: 50%;
   color: #fff;
@@ -2144,7 +2165,8 @@ body {
 }
 
 .modal-card.light-theme .gift-tab-item.tab-blue {
-  color: #3b82f6; /* Inactive link blue */
+  color: #3b82f6;
+  /* Inactive link blue */
 }
 
 .modal-card.light-theme .gift-tab-item.tab-blue:hover {
@@ -2153,7 +2175,8 @@ body {
 }
 
 .modal-card.light-theme .gift-tab-item.tab-gold {
-  color: #b89c65; /* Active gold */
+  color: #b89c65;
+  /* Active gold */
 }
 
 .modal-card.light-theme .gift-form-group {
@@ -2172,7 +2195,8 @@ body {
 .modal-card.light-theme .gift-form-input {
   width: 100%;
   padding: 12px 16px;
-  background-color: #efefef; /* Light grey input background */
+  background-color: #efefef;
+  /* Light grey input background */
   border: 1px solid transparent;
   border-radius: 8px;
   color: #1f2937;
@@ -2194,7 +2218,8 @@ body {
 .modal-card.light-theme .gift-form-textarea {
   width: 100%;
   padding: 12px 16px;
-  background-color: #efefef; /* Light grey textarea background */
+  background-color: #efefef;
+  /* Light grey textarea background */
   border: 1px solid transparent;
   border-radius: 8px;
   color: #1f2937;
@@ -2217,7 +2242,8 @@ body {
 
 .modal-card.light-theme .btn-gift-submit {
   width: 100%;
-  background-color: #6ebb39; /* Green button */
+  background-color: #6ebb39;
+  /* Green button */
   color: #ffffff;
   border: none;
   border-radius: 12px;
@@ -2267,7 +2293,7 @@ body {
   border-radius: 12px;
   padding: 10px;
   background: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .modal-card.light-theme .qris-image-wrapper img {
@@ -2445,7 +2471,8 @@ body {
   height: 58vh;
   max-height: 380px;
   min-height: 190px;
-  margin-top: auto; /* Absorbs all top space, pushing everything down */
+  margin-top: auto;
+  /* Absorbs all top space, pushing everything down */
   margin-bottom: -70px;
   z-index: 2;
   flex-shrink: 1;
@@ -2465,7 +2492,8 @@ body {
 /* Hearts cluster above couple's heads */
 .modal-card.mempelai-custom-modal .mempelai-custom-hearts {
   position: absolute;
-  top: -25px; /* Sits perfectly above the couple's heads */
+  top: -25px;
+  /* Sits perfectly above the couple's heads */
   left: 51%;
   transform: translateX(-50%);
   width: 50px;
@@ -2506,8 +2534,13 @@ body {
 }
 
 @keyframes heartPulse {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.15); }
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.15);
+  }
 }
 
 /* Floating White card overlaying the lower body */
@@ -2515,8 +2548,10 @@ body {
   background: #ffffff;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  margin: 0 20px 20px 20px; /* Positioned nicely above the bottom */
-  padding: 20px 20px 16px 20px; /* Reduced padding as requested */
+  margin: 0 20px 20px 20px;
+  /* Positioned nicely above the bottom */
+  padding: 20px 20px 16px 20px;
+  /* Reduced padding as requested */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2529,7 +2564,8 @@ body {
 .modal-card.mempelai-custom-modal .mempelai-custom-greeting {
   font-size: 0.95rem;
   color: #333333;
-  margin-bottom: 8px; /* Tighter margins */
+  margin-bottom: 8px;
+  /* Tighter margins */
   line-height: 1.4;
 }
 
@@ -2542,17 +2578,20 @@ body {
   font-size: 0.85rem;
   color: #555555;
   line-height: 1.6;
-  margin-bottom: 12px; /* Tighter margins */
+  margin-bottom: 12px;
+  /* Tighter margins */
 }
 
 .modal-card.mempelai-custom-modal .mempelai-custom-signature {
-  margin-bottom: 16px; /* Tighter margins */
+  margin-bottom: 16px;
+  /* Tighter margins */
 }
 
 .modal-card.mempelai-custom-modal .signature-label {
   font-size: 0.8rem;
   color: #888888;
-  margin-bottom: 2px; /* Tighter margins */
+  margin-bottom: 2px;
+  /* Tighter margins */
 }
 
 .modal-card.mempelai-custom-modal .signature-names {
@@ -2565,7 +2604,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px; /* Tighter margins */
+  gap: 8px;
+  /* Tighter margins */
   width: 100%;
 }
 
@@ -2581,7 +2621,8 @@ body {
 }
 
 .modal-card.mempelai-custom-modal .link-wish {
-  color: #1b5e20; /* Matching Green color */
+  color: #1b5e20;
+  /* Matching Green color */
 }
 
 .modal-card.mempelai-custom-modal .link-wish:hover {
@@ -2716,17 +2757,20 @@ body {
 }
 
 .modal-card.story-light-theme .modal-body p {
-  color: #665550 !important; /* Elegant warm dark gray for body text */
+  color: #665550 !important;
+  /* Elegant warm dark gray for body text */
 }
 
 .modal-card.story-light-theme .modal-body h4 {
   color: #2b1b11 !important;
 }
 
+
 /* ========================================== */
 /* 10. PREMIUM DESKTOP WIDESCREEN BOX         */
 /* ========================================== */
 @media (min-width: 1024px) {
+
   /* Blurred atmospheric sky background behind game box */
   body::before {
     content: '';
@@ -2740,7 +2784,7 @@ body {
   }
 
   /* Centered 16:9 Retro Console Game Box */
-  .container-game-landscape {
+  .game-box-wrapper {
     width: 960px !important;
     height: 540px !important;
     position: fixed !important;
@@ -2754,6 +2798,20 @@ body {
       0 0 40px rgba(255, 160, 174, 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
     z-index: 1;
+    overflow: hidden;
+  }
+
+  /* Scrollable container stays full inside wrapper */
+  .container-game-landscape {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
   }
 
   /* Cover page matches game box dimensions */
@@ -2771,35 +2829,20 @@ body {
   .cover-typography {
     margin-top: 3vh;
   }
+
   .cover-names {
     font-size: 2.8rem;
   }
+
   .cover-monument {
     height: 55%;
     max-height: 340px;
   }
 
-  /*
-   * CRITICAL: Override vh → % for fixed elements inside the
-   * transformed container. The transform on .container-game-landscape
-   * creates a new containing block, making position:fixed children
-   * behave like position:absolute relative to the 960x540 box.
-   * vh/vw units still reference the viewport, so we must use %
-   * (which now reference the container) to keep proportions correct.
-   */
+  /* Character fixed horizontal scaling inside retro gamebox */
   .m-character {
     bottom: 23% !important;
     width: 130px !important;
-  }
-  .container-game-landscape.onStart .m-character {
-    bottom: 3% !important;
-  }
-
-  .speech-bubble {
-    bottom: 42% !important;
-  }
-  .container-game-landscape.onStart .speech-bubble {
-    bottom: 22% !important;
   }
 
   /* Ensure sky background fills the box + parallax scroll range */
@@ -2816,6 +2859,7 @@ body {
     height: 44px;
     bottom: 10%;
   }
+
   .arrow-left svg,
   .arrow-right svg {
     width: 22px;
@@ -2829,6 +2873,7 @@ body {
     top: 10px;
     right: 10px;
   }
+
   .music-disc {
     font-size: 1.3rem;
   }
