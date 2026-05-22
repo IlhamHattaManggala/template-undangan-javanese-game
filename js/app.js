@@ -92,11 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const rightImg = btnRight.querySelector("img");
       if (rightImg) rightImg.src = config.assets.arrowRight;
     }
-    
-    // Speech bubble background
-    if (speechBubble && config.assets.dialogPlainBg) {
-      speechBubble.style.backgroundImage = `url(${config.assets.dialogPlainBg})`;
-    }
+    // Speech bubble background handled by CSS for high-quality styled border & tail
 
     // Set cover details from config
     const coverTitle = document.getElementById("cover-title");
