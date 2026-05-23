@@ -64,8 +64,46 @@ document.addEventListener("DOMContentLoaded", () => {
       styleEl.innerHTML = `@media (min-width: 1024px) { body::before { background-image: url('${config.assets.background}') !important; } }`;
       document.head.appendChild(styleEl);
     }
-    
-    // Set floor path ground texture
+
+    // --- Apply SEO & Meta Tags from config ---
+    if (config.seo) {
+      // Update page title (browser tab)
+      if (config.seo.pageTitle) document.title = config.seo.pageTitle;
+      // Update meta description
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && config.seo.description) metaDesc.setAttribute('content', config.seo.description);
+      // Update Open Graph (WA/IG share preview)
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle && config.seo.ogTitle) ogTitle.setAttribute('content', config.seo.ogTitle);
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc && config.seo.ogDescription) ogDesc.setAttribute('content', config.seo.ogDescription);
+      const ogImg = document.querySelector('meta[property="og:image"]');
+      if (ogImg && config.seo.ogImage) ogImg.setAttribute('content', config.seo.ogImage);
+    }
+
+    // --- Apply UI texts from config (copyright, quest labels, monument image) ---
+    if (config.ui) {
+      // Watermark copyright text
+      const copyright = document.getElementById('mark-copyright');
+      if (copyright && config.ui.copyright) copyright.innerText = config.ui.copyright;
+      // Quest board title
+      const questTitle = document.getElementById('quest-title');
+      if (questTitle && config.ui.questTitle) questTitle.innerText = config.ui.questTitle;
+      // Quest item labels
+      if (config.ui.questItems) {
+        const labelMailbox  = document.getElementById('quest-label-mailbox');
+        const labelMempelai = document.getElementById('quest-label-mempelai');
+        const labelGift     = document.getElementById('quest-label-gift');
+        if (labelMailbox  && config.ui.questItems.mailbox)  labelMailbox.innerText  = config.ui.questItems.mailbox;
+        if (labelMempelai && config.ui.questItems.mempelai) labelMempelai.innerText = config.ui.questItems.mempelai;
+        if (labelGift     && config.ui.questItems.gift)     labelGift.innerText     = config.ui.questItems.gift;
+      }
+      // Cover monument image (gambar di tengah cover page)
+      const coverMonument = document.querySelector('.cover-monument-img');
+      if (coverMonument && config.ui.coverMonumentImg) coverMonument.src = config.ui.coverMonumentImg;
+    }
+
+
     const groundTiles = document.getElementById("ground-tiles");
     if (groundTiles && config.assets.floor) {
       groundTiles.src = config.assets.floor;

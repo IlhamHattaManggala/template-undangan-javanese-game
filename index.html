@@ -17,7 +17,7 @@
   <meta property="og:type" content="website">
 
   <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=126">
+  <link rel="stylesheet" href="css/style.css?v=127">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://cdn-uploads.owlink.id/contenful/game-java/love.png">
@@ -90,28 +90,28 @@
     </div>
 
     <!-- Copyright / Watermark -->
-    <div class="mark-copyright">
+    <div class="mark-copyright" id="mark-copyright">
       Our Wedding Link @ 2026
     </div>
 
     <!-- Active Quest Checklists -->
     <div class="quest-game" id="quest-board">
-      <h5 class="font-content">Selesaikan misi ini:</h5>
+      <h5 class="font-content" id="quest-title">Selesaikan misi ini:</h5>
       <ul>
         <li class="font-content" id="quest-item-mailbox">
           <span class="status"><img
               src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' style='image-rendering:pixelated;shape-rendering:crispEdges;'><rect x='0' y='0' width='16' height='16' rx='3' fill='%232b1b11' stroke='%23ffa0ae' stroke-width='2'/><path d='M8 3L12 11H4Z' fill='%23ffd54f'/><rect x='7' y='6' width='2' height='3' fill='%232b1b11'/><rect x='7' y='10' width='2' height='1' fill='%232b1b11'/></svg>"
-              alt="Pending" id="quest-icon-mailbox"></span> Buka Mailbox
+              alt="Pending" id="quest-icon-mailbox"></span> <span id="quest-label-mailbox">Buka Mailbox</span>
         </li>
         <li class="font-content" id="quest-item-mempelai">
           <span class="status"><img
               src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' style='image-rendering:pixelated;shape-rendering:crispEdges;'><rect x='0' y='0' width='16' height='16' rx='3' fill='%232b1b11' stroke='%23ffa0ae' stroke-width='2'/><path d='M8 3L12 11H4Z' fill='%23ffd54f'/><rect x='7' y='6' width='2' height='3' fill='%232b1b11'/><rect x='7' y='10' width='2' height='1' fill='%232b1b11'/></svg>"
-              alt="Pending" id="quest-icon-mempelai"></span> Sapa Mempelai
+              alt="Pending" id="quest-icon-mempelai"></span> <span id="quest-label-mempelai">Sapa Mempelai</span>
         </li>
         <li class="font-content" id="quest-item-gift">
           <span class="status"><img
               src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16' style='image-rendering:pixelated;shape-rendering:crispEdges;'><rect x='0' y='0' width='16' height='16' rx='3' fill='%232b1b11' stroke='%23ffa0ae' stroke-width='2'/><path d='M8 3L12 11H4Z' fill='%23ffd54f'/><rect x='7' y='6' width='2' height='3' fill='%232b1b11'/><rect x='7' y='10' width='2' height='1' fill='%232b1b11'/></svg>"
-              alt="Pending" id="quest-icon-gift"></span> Kunjungi Kado Pernikahan
+              alt="Pending" id="quest-icon-gift"></span> <span id="quest-label-gift">Kunjungi Kado Pernikahan</span>
         </li>
       </ul>
     </div>
@@ -264,8 +264,8 @@
   <!-- ========================================== -->
   <!-- 4. CORE ENGINE SCRIPTS                      -->
   <!-- ========================================== -->
-  <script src="js/config.js?v=126"></script>
-  <script src="js/app.js?v=126"></script>
+  <script src="js/config.js?v=127"></script>
+  <script src="js/app.js?v=127"></script>
 
 </body>
 

@@ -11,6 +11,17 @@
 window.weddingConfig = {
 
   // =========================================================================
+  // 0. SEO & META TAGS (Tab browser, Google, WhatsApp/Instagram preview)
+  // =========================================================================
+  seo: {
+    pageTitle: "Undangan Pernikahan Laras & Bimo - Javanese Game Adventure", // Judul tab browser
+    description: "Gabunglah dalam petualangan 2D retro interaktif pernikahan Laras & Bimo. Buka undangan sekarang untuk melihat detail Akad, Resepsi, Galeri, dan Buku Tamu!", // Deskripsi Google
+    ogTitle: "Undangan Pernikahan Laras & Bimo - Javanese Game",             // Judul saat dishare ke WA/IG
+    ogDescription: "Gabunglah dalam petualangan 2D retro interaktif pernikahan Laras & Bimo.", // Deskripsi share
+    ogImage: "https://cdn-uploads.owlink.id/acf11590-4e7f-11f1-b4e7-09dce495479a.jpg",        // Foto preview share
+  },
+
+  // =========================================================================
   // 1. INFORMASI UMUM PERNIKAHAN
   // =========================================================================
   general: {
@@ -33,6 +44,20 @@ window.weddingConfig = {
     greetingText: "Kepada Yth. Bapak/Ibu/Saudara/i", // Teks salam penerima
     guestNameFallback: "Tamu Undangan",         // Nama default jika link tidak memakai "?to=Nama"
     buttonText: "BUKA UNDANGAN",                // Teks tombol untuk mulai bermain
+    coverMonumentImg: "https://cdn-uploads.owlink.id/contenful/game-java/couple.png", // Gambar tengah di cover page
+  },
+
+  // =========================================================================
+  // UI TEKS DALAM GAME (Quest Board, Watermark, dsb.)
+  // =========================================================================
+  ui: {
+    copyright: "Our Wedding Link @ 2026",         // Teks watermark di pojok kanan atas
+    questTitle: "Selesaikan misi ini:",           // Judul kotak quest checklist
+    questItems: {
+      mailbox:  "Buka Mailbox",                   // Label quest item pertama
+      mempelai: "Sapa Mempelai",                  // Label quest item kedua
+      gift:     "Kunjungi Kado Pernikahan",       // Label quest item ketiga
+    },
   },
 
   // =========================================================================
