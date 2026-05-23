@@ -122,6 +122,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const groundTiles = document.getElementById("ground-tiles");
     if (groundTiles && config.assets.floor) {
       groundTiles.src = config.assets.floor;
+      // Trigger recalculation of boundaries when the ground texture loads
+      groundTiles.addEventListener("load", () => {
+        updateScrollBounds();
+        handleScroll();
+      });
+      // In case it is already loaded from cache
+      if (groundTiles.complete) {
+        setTimeout(updateScrollBounds, 50);
+      }
     }
     const coverGrass = document.querySelector(".cover-grass-floor");
     if (coverGrass && config.assets.floor) {
@@ -292,7 +301,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Viewport Resize & Dynamic Scrolling Width Setup ---
   function updateScrollBounds() {
     const W = gameContainer.clientWidth || window.innerWidth;
-    const M = config.engine.mapWidth || 3200;
+    const groundTiles = document.getElementById("ground-tiles");
+    let M = config.engine.mapWidth || 2175;
+    
+    // Secara dinamis menyesuaikan mapWidth dengan lebar asli elemen tanah (ground-tiles) jika sudah ter-load!
+    if (groundTiles && groundTiles.clientWidth > 0) {
+      M = groundTiles.clientWidth;
+    }
+    
     // Set scrollForcer width so character can walk exactly from left end to right end
     if (scrollForcer) {
       scrollForcer.style.width = `${M + W * 0.64}px`;
