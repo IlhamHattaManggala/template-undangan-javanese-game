@@ -334,7 +334,7 @@ body {
   max-width: 170px;
   height: 180px;
   left: 36%;
-  bottom: 21vh;
+  bottom: 23vh;
   pointer-events: none;
   touch-action: none;
   transition: bottom 2.5s ease-in-out;
@@ -3248,9 +3248,8 @@ body {
     max-height: 340px;
   }
 
-  /* Character fixed horizontal scaling inside retro gamebox */
   .m-character {
-    bottom: 21% !important;
+    bottom: 23% !important;
     width: 130px !important;
   }
 
@@ -3342,7 +3341,7 @@ body {
   /* 3. Kembalikan ukuran dan posisi vertikal Karakter Utama agar sejajar sempurna di rasio konstan */
   .m-character {
     position: absolute !important;
-    bottom: 21% !important;   /* Posisi ideal sejajar rumput pada rasio 400x720 */
+    bottom: 23% !important;   /* Posisi ideal sejajar rumput pada rasio 400x720 */
     width: 130px !important;   /* Lebar sprite tajam konstan, anti-gepeng */
     height: 180px !important;  /* Tinggi sprite tajam konstan */
     left: 36% !important;
