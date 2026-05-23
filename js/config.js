@@ -261,7 +261,7 @@ window.weddingConfig = {
   // 9. SETTING DYNAMIC ENGINE & PARALLAX
   // =========================================================================
   engine: {
-    mapWidth: 2175,          // Total panjang peta/jalan game (dalam pixel)
+    mapWidth: 2030,          // Total panjang peta/jalan game (dalam pixel)
     characterSpeed: 10,       // Kecepatan jalan karakter (semakin besar = semakin cepat scroll)
     desktopScale: 1.0,       // Skala zoom box game di desktop komputer
     mobileScale: 1.2,        // Skala zoom layar game di HP/Mobile
@@ -300,7 +300,7 @@ window.weddingConfig = {
   milestones: [
     {
       id: "wood-bird",
-      pos: 400,
+      pos: 350,
       bottom: "2.5%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/mailbox.png",
       width: 140,
@@ -311,7 +311,7 @@ window.weddingConfig = {
     },
     {
       id: "welcome",
-      pos: 750,
+      pos: 670,
       bottom: "4.5%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/parkinfo.png",
       width: 140,
@@ -322,7 +322,7 @@ window.weddingConfig = {
     },
     {
       id: "gallery",
-      pos: 1210,
+      pos: 1130,
       bottom: "3%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/crew.png",
       width: 170,
@@ -333,7 +333,7 @@ window.weddingConfig = {
     },
     {
       id: "gift",
-      pos: 1520,
+      pos: 1380,
       bottom: "3%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/gift.png",
       width: 120,
@@ -344,7 +344,7 @@ window.weddingConfig = {
     },
     {
       id: "wedding-easel",
-      pos: 1760,
+      pos: 1620,
       bottom: "3%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/wedding_sign.png",
       width: 160,
@@ -354,7 +354,7 @@ window.weddingConfig = {
     },
     {
       id: "mempelai",
-      pos: 1945,
+      pos: 1800,
       bottom: "3%",
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/couple.png",
       width: 160,
@@ -371,7 +371,7 @@ window.weddingConfig = {
   entities: [
     {
       id: "bee",
-      pos: 600,
+      pos: 500,
       top: 100,
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/bee.png",
       width: 40,
@@ -380,7 +380,7 @@ window.weddingConfig = {
     },
     {
       id: "chick",
-      pos: 100,
+      pos: 80,
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/chick.gif",
       width: 45,
       height: 45,
@@ -388,7 +388,7 @@ window.weddingConfig = {
     },
     {
       id: "dove",
-      pos: 2000,
+      pos: 1900,
       top: 80,
       imgUrl: "https://cdn-uploads.owlink.id/contenful/game-java/dove.gif",
       width: 50,

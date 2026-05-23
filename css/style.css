@@ -1802,17 +1802,19 @@ body {
   border-radius: 20px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
   color: #2b1b11;
-  padding: 65px 40px;
+  padding: 40px 24px;
   width: 90%;
   max-width: 420px;
-  min-height: 580px;
+  max-height: 90vh;
   text-align: center;
   align-self: center;
   margin: auto;
-  overflow: visible !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  box-sizing: border-box;
 }
 
 .modal-card.rsvp-paper-theme .rsvp-welcome-container {
@@ -2087,17 +2089,18 @@ body {
   border-radius: 20px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
   color: #2b1b11;
-  padding: 55px 40px;
+  padding: 40px 24px;
   width: 90%;
   max-width: 420px;
-  min-height: 480px;
+  max-height: 90vh;
   text-align: center;
   align-self: center;
   margin: auto;
-  overflow: visible !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   box-sizing: border-box;
 }
 
@@ -2198,6 +2201,18 @@ body {
 /* Hide standard close button for welcome paper theme modal */
 .modal-card.welcome-paper-theme .btn-close-modal {
   display: none !important;
+}
+
+/* Hide scrollbar for welcome and RSVP paper theme modals while keeping scroll active */
+.modal-card.welcome-paper-theme::-webkit-scrollbar,
+.modal-card.rsvp-paper-theme::-webkit-scrollbar {
+  display: none !important;
+}
+
+.modal-card.welcome-paper-theme,
+.modal-card.rsvp-paper-theme {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
 }
 
 /* --- RSVP Welcome Modal Visual Parity (Image 2) --- */
@@ -2751,8 +2766,11 @@ body {
 
 /* --- Visual & Spacing Adjustments for Gift Modal --- */
 .modal-card.light-theme {
+  background: #ffffff !important;
   overflow: visible !important;
   padding: 24px 20px;
+  max-height: 95vh;
+  box-sizing: border-box;
 }
 
 .modal-card.light-theme .modal-header {
@@ -2762,6 +2780,20 @@ body {
 
 .modal-card.light-theme .modal-body {
   padding: 10px 0 0 0;
+  max-height: 65vh;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box;
+}
+
+/* Hide scrollbar for light-theme .modal-body while keeping scroll active */
+.modal-card.light-theme .modal-body::-webkit-scrollbar {
+  display: none !important;
+}
+
+.modal-card.light-theme .modal-body {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
 }
 
 .modal-card.light-theme .gift-form-title {

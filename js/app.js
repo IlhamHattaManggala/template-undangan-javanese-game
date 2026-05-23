@@ -15,13 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainPlayer = document.getElementById("main-player");
   const speechBubble = document.getElementById("speech-bubble");
   const speechText = document.getElementById("speech-text");
-  
+
   const btnLeft = document.getElementById("up");
   const btnRight = document.getElementById("down");
-  
+
   const musicToggle = document.getElementById("music-toggle");
   const audioEl = document.getElementById("music_source");
-  
+
   const modalOverlay = document.getElementById("modal-overlay");
   const modalContainer = document.getElementById("modal-container");
   const landscapeFrame = document.getElementById("landscape-frame");
@@ -50,10 +50,10 @@ document.addEventListener("DOMContentLoaded", () => {
   populateBulletinBoard();
   setupEventListeners();
   updateScrollBounds();
-  
+
   // Set initial scroll coordinates
   gameContainer.scrollLeft = 0;
-  
+
   // Bind scroll event to our native scroll physics handler
   gameContainer.addEventListener("scroll", handleScroll);
 
@@ -106,12 +106,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (questTitle && config.ui.questTitle) questTitle.innerText = config.ui.questTitle;
       // Quest item labels
       if (config.ui.questItems) {
-        const labelMailbox  = document.getElementById('quest-label-mailbox');
+        const labelMailbox = document.getElementById('quest-label-mailbox');
         const labelMempelai = document.getElementById('quest-label-mempelai');
-        const labelGift     = document.getElementById('quest-label-gift');
-        if (labelMailbox  && config.ui.questItems.mailbox)  labelMailbox.innerText  = config.ui.questItems.mailbox;
+        const labelGift = document.getElementById('quest-label-gift');
+        if (labelMailbox && config.ui.questItems.mailbox) labelMailbox.innerText = config.ui.questItems.mailbox;
         if (labelMempelai && config.ui.questItems.mempelai) labelMempelai.innerText = config.ui.questItems.mempelai;
-        if (labelGift     && config.ui.questItems.gift)     labelGift.innerText     = config.ui.questItems.gift;
+        if (labelGift && config.ui.questItems.gift) labelGift.innerText = config.ui.questItems.gift;
       }
       // Cover monument image (gambar di tengah cover page)
       const coverMonument = document.querySelector('.cover-monument-img');
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (coverGrass && config.assets.floor) {
       coverGrass.style.backgroundImage = `url('${config.assets.floor}')`;
     }
-    
+
     // Set character default images
     if (mainPlayer) {
       const standImg = mainPlayer.querySelector(".stand");
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (standImg && config.assets.characterIdle) standImg.src = config.assets.characterIdle;
       if (walkImg && config.assets.characterWalk) walkImg.src = config.assets.characterWalk;
     }
-    
+
     // Touch controls arrow images
     if (btnLeft && config.assets.arrowLeft) {
       const leftImg = btnLeft.querySelector("img");
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const coverTitle = document.getElementById("cover-title");
     const coverSubtitle = document.getElementById("cover-subtitle");
     const guestTitle = document.getElementById("guest-title");
-    
+
     if (coverTitle) coverTitle.innerText = config.cover.title;
     if (coverSubtitle) coverSubtitle.innerText = config.cover.subtitle;
     if (guestTitle) guestTitle.innerText = config.cover.greetingText;
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (coverPreTitle) coverPreTitle.innerText = config.cover.preTitle;
       if (gamePreTitle) gamePreTitle.innerText = config.cover.preTitle;
     }
-    
+
     // Set cursive calligraphy details dynamically
     const coverBride = document.getElementById("cover-bride");
     const coverGroom = document.getElementById("cover-groom");
@@ -199,12 +199,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (coverDateDisplay) {
       coverDateDisplay.innerText = config.general.weddingDateFormatted || "12 . 07 . 26";
     }
-    
+
     // Populate retro names and dates on landmarks and headers
     const labelBride = document.getElementById("label-bride");
     const labelGroom = document.getElementById("label-groom");
     const labelWeddingDate = document.getElementById("label-wedding-date");
-    
+
     if (labelBride) labelBride.innerText = config.general.brideNickname;
     if (labelGroom) labelGroom.innerText = config.general.groomNickname;
     if (labelWeddingDate) {
@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }
-    
+
     // Parse URL parameter to greet specific guests
     const urlParams = new URLSearchParams(window.location.search);
     const guestParam = urlParams.get("to") || urlParams.get("u");
@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function populateBulletinBoard() {
     const wishesBoard = document.getElementById("wishes-bulletin-board");
     if (!wishesBoard) return;
-    
+
     let stored = JSON.parse(localStorage.getItem("wedding_rsvps")) || [];
     if (stored.length === 0) {
       stored = [
@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ];
       localStorage.setItem("wedding_rsvps", JSON.stringify(stored));
     }
-    
+
     wishesBoard.innerHTML = "";
     // Show top 4 wishes on the scrollable bulletin board wall
     stored.slice(0, 4).forEach(item => {
@@ -303,12 +303,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const W = gameContainer.clientWidth || window.innerWidth;
     const groundTiles = document.getElementById("ground-tiles");
     let M = config.engine.mapWidth || 2175;
-    
+
     // Secara dinamis menyesuaikan mapWidth dengan lebar asli elemen tanah (ground-tiles) jika sudah ter-load!
     if (groundTiles && groundTiles.clientWidth > 0) {
       M = groundTiles.clientWidth;
     }
-    
+
     // Set scrollForcer width so the camera stops exactly at the end of the ground tiles
     if (scrollForcer) {
       scrollForcer.style.width = `${M}px`;
@@ -326,7 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const scrollLeft = gameContainer.scrollLeft;
-    
+
     // Deactivate welcome speech bubble once player starts walking/scrolling
     if (scrollLeft > 10) {
       hasStartedWalking = true;
@@ -334,22 +334,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const W = gameContainer.clientWidth || window.innerWidth;
     const virtualPlayerX = scrollLeft + W * 0.36;
-    
+
     // Apply exact translate3d offset to map elements
     if (landscapeFrame) {
       landscapeFrame.style.transform = `translate3d(${-scrollLeft}px, 0, 0)`;
     }
-    
+
     // Apply parallax offset to the sky/background image
     if (bgSkyImg) {
       const skyParallaxSpeed = config.engine.parallaxSpeeds.sky || 0.1;
       bgSkyImg.style.transform = `translate3d(${-scrollLeft * skyParallaxSpeed}px, 0, 0)`;
     }
-    
+
     // Activate walk animation gif
     if (mainPlayer) {
       mainPlayer.classList.add("active");
-      
+
       // Determine walking orientation direction
       if (scrollLeft > lastScrollLeft + 0.5) {
         mainPlayer.classList.remove("back");
@@ -358,10 +358,10 @@ document.addEventListener("DOMContentLoaded", () => {
         mainPlayer.classList.remove("forward");
         mainPlayer.classList.add("back");
       }
-      
+
       // Bridge Arc Logic
-      const bridgeStart = 880;
-      const bridgeEnd = 1090;
+      const bridgeStart = 780;
+      const bridgeEnd = 1000;
       if (virtualPlayerX > bridgeStart && virtualPlayerX < bridgeEnd) {
         const bridgeCenter = (bridgeStart + bridgeEnd) / 2;
         const bridgeWidth = bridgeEnd - bridgeStart;
@@ -373,12 +373,12 @@ document.addEventListener("DOMContentLoaded", () => {
         mainPlayer.style.transform = `translateY(0px)`;
       }
     }
-    
+
     // Evaluate proximity in real-time during scroll
     checkMilestoneProximity(virtualPlayerX);
-    
+
     lastScrollLeft = scrollLeft;
-    
+
     // Halt character walking animation when scrolling halts for 150ms
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => {
@@ -393,23 +393,30 @@ document.addEventListener("DOMContentLoaded", () => {
   // Proximity collision detection between player character and milestones
   function checkMilestoneProximity(virtualPlayerX) {
     let currentActive = null;
-    
-    // Prioritize mempelai (bride & groom) at the end of the map so its bubble shows early and doesn't get overridden by easel
-    const thresholdMempelai = (config.engine.mapWidth || 2175) - 125;
-    if (virtualPlayerX >= thresholdMempelai) {
-      currentActive = config.milestones.find(m => m.id === "mempelai");
-    }
-    
-    if (!currentActive) {
-      const threshold = 160;
+
+    // Prioritize mempelai at the end of the map: if the player is past the easel (mempelai.pos - 170), show mempelai bubble early
+    const mempelaiMilestone = config.milestones.find(m => m.id === "mempelai");
+    const mempelaiTriggerPos = mempelaiMilestone ? (mempelaiMilestone.pos - 170) : 1630;
+
+    if (mempelaiMilestone && virtualPlayerX >= mempelaiTriggerPos) {
+      currentActive = mempelaiMilestone;
+    } else {
+      let closestMilestone = null;
+      let minDistance = Infinity;
+
+      // Find the closest milestone to the character's virtual position X
       config.milestones.forEach(m => {
-        if (m.id !== "mempelai") {
-          const dist = Math.abs(virtualPlayerX - m.pos);
-          if (dist < threshold) {
-            currentActive = m;
-          }
+        const dist = Math.abs(virtualPlayerX - m.pos);
+        if (dist < minDistance) {
+          minDistance = dist;
+          closestMilestone = m;
         }
       });
+
+      const threshold = 160;
+      if (minDistance < threshold) {
+        currentActive = closestMilestone;
+      }
     }
 
     if (currentActive) {
@@ -419,20 +426,20 @@ document.addEventListener("DOMContentLoaded", () => {
           const oldEl = document.querySelector(`[data-milestone-id="${activeMilestone.id}"]`);
           if (oldEl) oldEl.classList.remove("active");
         }
-        
+
         const wasActive = speechBubble && speechBubble.classList.contains("active");
         activeMilestone = currentActive;
-        
+
         // Activate current milestone glow outline
         const el = document.querySelector(`[data-milestone-id="${activeMilestone.id}"]`);
         if (el) el.classList.add("active");
-        
+
         // Show interactive Speech dialogue box above character
         if (speechBubble && speechText) {
           if (activeMilestone.dialogText) {
             const updateBubbleContent = () => {
               speechText.innerHTML = activeMilestone.dialogText;
-              
+
               const clickIndicator = speechBubble.querySelector(".click-indicator");
               if (clickIndicator) {
                 if (activeMilestone.action === "openModal") {
@@ -461,7 +468,7 @@ document.addEventListener("DOMContentLoaded", () => {
             speechBubble.classList.remove("active");
           }
         }
-        
+
         // Set matching quest item objective to finished state
         markQuestItemDone(activeMilestone.id);
       }
@@ -482,7 +489,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function markQuestItemDone(milestoneId) {
     let itemId = "";
     let iconId = "";
-    
+
     if (milestoneId === "rsvp") {
       itemId = "quest-item-mailbox";
       iconId = "quest-icon-mailbox";
@@ -496,7 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
       itemId = "quest-item-gift";
       iconId = "quest-icon-gift";
     }
-    
+
     if (itemId) {
       const itemEl = document.getElementById(itemId);
       const iconEl = document.getElementById(iconId);
@@ -509,12 +516,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function scrollToMilestone(milestone) {
     const W = gameContainer.clientWidth || window.innerWidth;
     const targetScrollLeft = Math.max(0, Math.min(milestone.pos - W * 0.36, config.engine.mapWidth - W * 0.36));
-    
+
     gameContainer.scrollTo({
       left: targetScrollLeft,
       behavior: "smooth"
     });
-    
+
     // Open modal programmatically once scrolling completes if it's a modal action
     if (milestone.action === "openModal") {
       setTimeout(() => {
@@ -530,14 +537,14 @@ document.addEventListener("DOMContentLoaded", () => {
       btnBuka.addEventListener("click", () => {
         if (coverPage) coverPage.classList.add("fade-out");
         if (gameContainer) gameContainer.classList.remove("onStart");
-        
+
         setTimeout(() => {
           if (coverPage) coverPage.style.display = "none";
         }, 800);
-        
+
         // Initialize Background Music
         initAudio();
-        
+
         // Calculate dynamic dimensions & offsets
         updateScrollBounds();
         handleScroll();
@@ -588,7 +595,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function startHoldScrolling(direction) {
     isHolding = true;
     holdDirection = direction;
-    
+
     function loop() {
       if (!isHolding || modalOverlay.classList.contains("active")) {
         isHolding = false;
@@ -596,10 +603,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       const scrollSpeed = 10; // Scroll speed in pixels per frame
       gameContainer.scrollLeft += holdDirection * scrollSpeed;
-      
+
       // Explicitly trigger scroll updates to ensure immediate visual responsiveness and speech bubble hiding
       handleScroll();
-      
+
       holdScrollTimer = requestAnimationFrame(loop);
     }
     cancelAnimationFrame(holdScrollTimer);
@@ -624,7 +631,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btnLeft.classList.add("onhold");
         startHoldScrolling(-1);
       }, { passive: false });
-      
+
       // Right button events
       btnRight.addEventListener("mousedown", (e) => {
         e.preventDefault();
@@ -636,14 +643,14 @@ document.addEventListener("DOMContentLoaded", () => {
         btnRight.classList.add("onhold");
         startHoldScrolling(1);
       }, { passive: false });
-      
+
       // Stop events
       const releaseControls = (e) => {
         btnLeft.classList.remove("onhold");
         btnRight.classList.remove("onhold");
         stopHoldScrolling();
       };
-      
+
       window.addEventListener("mouseup", releaseControls);
       window.addEventListener("touchend", releaseControls);
       btnLeft.addEventListener("mouseleave", releaseControls);
@@ -660,7 +667,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateKeyScroll() {
     const leftPressed = keysPressed.ArrowLeft || keysPressed.KeyA;
     const rightPressed = keysPressed.ArrowRight || keysPressed.KeyD;
-    
+
     if (leftPressed && !rightPressed) {
       keyDirection = -1;
       isHoldingKey = true;
@@ -670,7 +677,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       isHoldingKey = false;
     }
-    
+
     if (isHoldingKey) {
       startKeyScrollLoop();
     } else {
@@ -686,10 +693,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       const keyboardScrollSpeed = 10;
       gameContainer.scrollLeft += keyDirection * keyboardScrollSpeed;
-      
+
       // Explicitly trigger scroll updates to ensure immediate walk feedback and speech bubble hiding
       handleScroll();
-      
+
       keyScrollTimer = requestAnimationFrame(loop);
     }
     cancelAnimationFrame(keyScrollTimer);
@@ -703,12 +710,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function setupKeyboardScrolling() {
     window.addEventListener("keydown", (e) => {
       if (modalOverlay.classList.contains("active")) return;
-      
+
       if (e.code === "ArrowLeft" || e.code === "KeyA" || e.code === "ArrowRight" || e.code === "KeyD") {
         keysPressed[e.code] = true;
         updateKeyScroll();
       }
-      
+
       // Space or Enter hotkeys to trigger milestone modals
       if (e.code === "Space" || e.code === "Enter") {
         if (activeMilestone && activeMilestone.action === "openModal") {
@@ -765,8 +772,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let contentHtml = "";
     if (modalContainer) {
       modalContainer.className = "modal-card";
+      modalContainer.style.backgroundImage = "";
     }
-    
+
     if (modalId === "modal-welcome") {
       if (modalContainer) {
         modalContainer.className = "modal-card welcome-paper-theme";
@@ -774,13 +782,13 @@ document.addEventListener("DOMContentLoaded", () => {
           modalContainer.style.backgroundImage = `url('${config.welcome.background}')`;
         }
       }
-      
+
       const urlParams = new URLSearchParams(window.location.search);
       const guestParam = urlParams.get("to") || urlParams.get("u");
       const guestName = guestParam ? decodeURIComponent(guestParam) : config.cover.guestNameFallback;
-      
+
       let displayDate = config.general.weddingDateFormattedFull || "12 . 07 . 2026";
-      
+
       const welcomeTexts = config.welcome?.texts || {};
       const greetingText = welcomeTexts.greeting || "Kepada Yth. Bapak/Ibu/Saudara/i";
       const buttonOkText = welcomeTexts.buttonOk || "Ok, Mengerti";
@@ -801,12 +809,12 @@ document.addEventListener("DOMContentLoaded", () => {
           <button class="btn-welcome-ok" id="btn-welcome-close">${buttonOkText}</button>
         </div>
       `;
-    } 
+    }
     else if (modalId === "modal-mempelai") {
       if (modalContainer) {
         modalContainer.className = "modal-card mempelai-custom-modal";
       }
-      
+
       const urlParams = new URLSearchParams(window.location.search);
       const guestParam = urlParams.get("to") || urlParams.get("u");
       const guestName = guestParam ? decodeURIComponent(guestParam) : config.cover.guestNameFallback;
@@ -815,20 +823,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const greetingTpl = memTexts.greeting || "Terima kasih, <strong>{guestName}</strong>!";
       const greetingText = greetingTpl.replace("{guestName}", guestName);
       const greetingSize = memTexts.greetingFontSize || "0.95rem";
-      
+
       const textText = memTexts.text || "kami tunggu kamu di acara pernikahan kami.<br>kamu juga bisa loh kasih kami doa & ucapan.";
       const textSize = memTexts.textFontSize || "0.85rem";
-      
+
       const sigLabel = memTexts.signatureLabel || "Yang berbahagia";
       const sigLabelSize = memTexts.signatureLabelFontSize || "0.8rem";
-      
+
       const sigNamesTpl = memTexts.signatureNames || "{bride} & {groom}";
       const sigNames = sigNamesTpl.replace("{bride}", config.mempelai.bride.name).replace("{groom}", config.mempelai.groom.name);
       const sigNamesSize = memTexts.signatureNamesFontSize || "0.95rem";
-      
+
       const btnWishText = memTexts.btnWish || "Kirim doa & Ucapan";
       const btnWishSize = memTexts.btnWishFontSize || "0.95rem";
-      
+
       const btnCloseText = memTexts.btnClose || "Mungkin lain kali";
       const btnCloseSize = memTexts.btnCloseFontSize || "0.95rem";
 
@@ -862,7 +870,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <!-- Ground floor path at bottom -->
         <div class="mempelai-custom-ground"></div>
       `;
-    } 
+    }
     else if (modalId === "modal-event") {
       contentHtml = `
         <div class="modal-header">
@@ -896,13 +904,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     else if (modalId === "modal-story") {
       if (modalContainer) {
-        modalContainer.classList.add("story-light-theme");
+        modalContainer.className = "modal-card story-light-theme";
       }
-      
+
       const storyTitle = config.story?.title || "Our Love Story";
       const preciousTitle = config.story?.preciousMomentTitle || "Precious moment";
       const preciousText = config.story?.preciousMomentText || `"Creating memories is a priceless gift. Memories last a lifetime; objects last only a short time."`;
-      
+
       let chaptersHtml = "";
       const chapters = config.story?.chapters || [
         {
@@ -926,7 +934,7 @@ document.addEventListener("DOMContentLoaded", () => {
           imgUrl: "https://cdn-uploads.owlink.id/acf11590-4e7f-11f1-b4e7-09dce495479a.jpg"
         }
       ];
-      
+
       chapters.forEach(ch => {
         chaptersHtml += `
           <div style="width: 100%;">
@@ -955,7 +963,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (modalId === "modal-gallery") {
       const mGallery = config.milestones.find(m => m.id === "gallery");
       const images = mGallery ? (mGallery.galleryImages || []) : [];
-      
+
       let slidesHtml = "";
       let dotsHtml = "";
       images.forEach((img, i) => {
@@ -989,11 +997,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (modalContainer) {
         modalContainer.className = "modal-card rsvp-paper-theme";
       }
-      
+
       const urlParams = new URLSearchParams(window.location.search);
       const guestParam = urlParams.get("to") || urlParams.get("u");
       const guestName = guestParam ? decodeURIComponent(guestParam) : config.cover.guestNameFallback;
-      
+
       const getFormattedTime = (timeStr) => {
         if (!timeStr) return "";
         let clean = timeStr.replace(/pukul/i, "").trim();
@@ -1001,7 +1009,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (clean.toUpperCase().includes("WIB")) { timezone = "WIB"; clean = clean.replace(/wib/i, "").trim(); }
         else if (clean.toUpperCase().includes("WITA")) { timezone = "WITA"; clean = clean.replace(/wita/i, "").trim(); }
         else if (clean.toUpperCase().includes("WIT")) { timezone = "WIT"; clean = clean.replace(/wit/i, "").trim(); }
-        
+
         if (clean.includes("-")) {
           clean = clean.split("-")[0].trim();
         }
@@ -1015,7 +1023,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const instructionText = rsvpTexts.instruction || "sebelum kamu menghadiri acara pernikahannya. kamu harus melakukan konfirmasi kehadiran terlebih dahulu. apakah kamu bersedia melakukannya?";
       const agreeBtnText = rsvpTexts.agreeBtn || "Ya saya mau melakukan konfirmasi kehadiran";
       const declineBtnText = rsvpTexts.declineBtn || "Nanti dulu deh";
-      
+
       contentHtml = `
         <div class="modal-welcome-content rsvp-welcome-container">
           <p class="rsvp-welcome-hi">Hi, <strong>${guestName}</strong>!</p>
@@ -1041,7 +1049,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     else if (modalId === "modal-gift") {
       if (modalContainer) {
-        modalContainer.classList.add("light-theme");
+        modalContainer.className = "modal-card light-theme";
       }
       const titleSize = config.gifts.texts?.titleFontSize || "1.1rem";
       contentHtml = `
@@ -1057,7 +1065,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set inside DOM Modal Overlay Card
     if (modalContainer) {
       modalContainer.innerHTML = contentHtml;
-      
+
       // Inject Retro Modal Close Button (Except for custom mempelai modal)
       if (modalId !== "modal-mempelai") {
         const closeBtn = document.createElement("button");
@@ -1145,13 +1153,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const urlParams = new URLSearchParams(window.location.search);
       const guestParam = urlParams.get("to") || urlParams.get("u");
       const guestName = guestParam ? decodeURIComponent(guestParam) : config.cover.guestNameFallback;
-      
+
       const cardContainer = modalContainer.querySelector(".mempelai-custom-card");
-      
+
       const setupCardEvents = () => {
         const btnWish = document.getElementById("btn-mempelai-wish");
         const btnClose = document.getElementById("btn-mempelai-close");
-        
+
         if (btnWish && cardContainer) {
           btnWish.addEventListener("click", () => {
             const formTitle = config.mempelai.texts?.formTitle || "Sampaikan doa & ucapan terbaikmu";
@@ -1174,7 +1182,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </form>
               <button type="button" class="btn-wish-cancel" id="btn-wish-cancel">Batalkan</button>
             `;
-            
+
             // Bind Form Submit
             const wishForm = document.getElementById("mempelai-wish-form");
             if (wishForm) {
@@ -1183,22 +1191,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 const name = document.getElementById("wish-name").value;
                 const address = document.getElementById("wish-address").value || "";
                 const message = document.getElementById("wish-message").value;
-                
+
                 // Keep msg formatted clean for wishes scroll bulletin
                 const formattedMsg = address ? `${message} (Alamat: ${address})` : message;
-                
+
                 const newRsvp = {
                   name: name,
                   count: 1,
                   status: "hadir",
                   msg: formattedMsg
                 };
-                
+
                 // Save locally
                 let stored = JSON.parse(localStorage.getItem("wedding_rsvps")) || [];
                 stored.unshift(newRsvp);
                 localStorage.setItem("wedding_rsvps", JSON.stringify(stored));
-                
+
                 // Submit to Sheet API if available
                 if (config.rsvp.submitUrl) {
                   fetch(config.rsvp.submitUrl, {
@@ -1207,14 +1215,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     headers: { "Content-Type": "application/json" }
                   }).catch(err => console.log("Failed to post wish:", err));
                 }
-                
+
                 alert("Terima kasih atas doa & ucapan Anda!");
-                
+
                 populateBulletinBoard();
                 closeModal();
               });
             }
-            
+
             // Bind Cancel Button to return to original state
             const btnCancel = document.getElementById("btn-wish-cancel");
             if (btnCancel) {
@@ -1236,12 +1244,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           });
         }
-        
+
         if (btnClose) {
           btnClose.addEventListener("click", closeModal);
         }
       };
-      
+
       setupCardEvents();
     }
     // 1. Gallery Slide Carousel Controller
@@ -1252,13 +1260,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const dots = modalContainer.querySelectorAll(".gallery-dot");
         const prevBtn = viewer.querySelector(".gallery-nav.prev");
         const nextBtn = viewer.querySelector(".gallery-nav.next");
-        
+
         let currentIndex = 0;
 
         const showSlide = (index) => {
           slides.forEach(s => s.classList.remove("active"));
           dots.forEach(d => d.classList.remove("active"));
-          
+
           slides[index].classList.add("active");
           dots[index].classList.add("active");
           currentIndex = index;
@@ -1293,11 +1301,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (modalId === "modal-rsvp") {
       const btnAgree = document.getElementById("btn-rsvp-agree");
       const btnDecline = document.getElementById("btn-rsvp-decline");
-      
+
       if (btnDecline) {
         btnDecline.addEventListener("click", closeModal);
       }
-      
+
       if (btnAgree) {
         btnAgree.addEventListener("click", () => {
           renderRsvpForm();
@@ -1306,9 +1314,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       function renderRsvpForm() {
         if (!modalContainer) return;
-        
+
         modalContainer.className = "modal-card rsvp-paper-theme";
-        
+
         const urlParams = new URLSearchParams(window.location.search);
         const guestParam = urlParams.get("to") || urlParams.get("u");
         const guestName = guestParam ? decodeURIComponent(guestParam) : config.cover.guestNameFallback;
@@ -1364,29 +1372,29 @@ document.addEventListener("DOMContentLoaded", () => {
         if (form) {
           form.addEventListener("submit", (e) => {
             e.preventDefault();
-            
+
             const name = document.getElementById("rsvp-name").value;
             const whatsapp = document.getElementById("rsvp-whatsapp").value || "";
             const address = document.getElementById("rsvp-address").value || "";
-            
+
             const statusEl = document.querySelector('input[name="rsvp-status"]:checked');
             const status = statusEl ? statusEl.value : "hadir";
             const statusText = status === "hadir" ? "Yes, I'll be there" : "Sorry, I can't";
-            
+
             // Concatenate address and whatsapp for wishes wall & local storage compatibility
             const msg = `Alamat/Instansi: ${address || '-'} | WA: ${whatsapp || '-'}`;
 
             const newRsvp = { name, count: 1, status, msg };
-            
+
             // Save locally
             let stored = JSON.parse(localStorage.getItem("wedding_rsvps")) || [];
             stored.unshift(newRsvp);
             localStorage.setItem("wedding_rsvps", JSON.stringify(stored));
-            
+
             // Format WhatsApp template
             const waText = `Halo ${config.general.brideNickname} & ${config.general.groomNickname}! \n\nSaya ingin konfirmasi kehadiran di acara pernikahan kalian:\nNama: ${name}\nWhatsApp: ${whatsapp || '-'}\nAlamat/Instansi: ${address || '-'}\nKonfirmasi: ${statusText}\n\nTerima Kasih!`;
             const waUrl = `https://api.whatsapp.com/send?phone=${config.rsvp.whatsappNumber}&text=${encodeURIComponent(waText)}`;
-            
+
             // Post to Sheet endpoint integration if provided
             if (config.rsvp.submitUrl) {
               fetch(config.rsvp.submitUrl, {
@@ -1401,7 +1409,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.open(waUrl, "_blank");
 
             closeModal();
-            
+
             // Dynamically refresh the background wishing board entries
             populateBulletinBoard();
           });
@@ -1489,7 +1497,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!modalBody) return;
 
         const giftTexts = config.gifts.texts || {};
-        
+
         const thanksTpl = giftTexts.thanks || "Terima Kasih, {name}!";
         const thanksText = thanksTpl.replace("{name}", name);
         const thanksSize = giftTexts.thanksFontSize || "1.1rem";
@@ -1542,10 +1550,10 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (method === "send") {
           const sendInst = giftTexts.sendInstruction || "Silakan kirimkan kado fisik Anda ke alamat penerima di bawah ini:";
           const sendInstSize = giftTexts.sendInstructionFontSize || "0.95rem";
-          
+
           const addrTitle = giftTexts.addressTitle || "Alamat Pengiriman (Kado Fisik)";
           const addrTitleSize = giftTexts.addressTitleFontSize || "1rem";
-          
+
           const addrDetailTpl = giftTexts.addressDetail || "<strong>Penerima:</strong> {bride} & {groom}<br><strong>Alamat:</strong> {venue}, {address}";
           const addrDetail = addrDetailTpl
             .replace("{bride}", config.general.brideNickname)
