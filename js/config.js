@@ -36,13 +36,21 @@ window.weddingConfig = {
   },
 
   // =========================================================================
-  // 3. MODAL WELCOME / KUTIPAN AYAT (Dipicu oleh Mailbox / Batang Kayu Burung)
+  // 3. BUBBLE CHAT KARAKTER UTAMA
+  // =========================================================================
+  speechBubble: {
+    initialText: "Selamat Datang! Silakan jalan ke kanan ya! 🚶‍♂️", // Teks awal bubble saat game baru dimulai
+    textFontSize: "0.72rem",                                          // Ukuran font teks dalam bubble chat
+  },
+
+  // =========================================================================
+  // 4. MODAL WELCOME / KUTIPAN AYAT (Dipicu oleh Mailbox / Batang Kayu Burung)
   // =========================================================================
   welcome: {
     background: "img/kertas.jfif",            // Gambar latar belakang modal (bisa diganti dengan gambar lain)
     arabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ Lَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا Lِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ Lَآيَاتٍ Lِّقَوْمٍ يَتَفَkَّرُونَ",
     meaning: `"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir." (QS. Ar-Rum: 21)`,
-    
+
     // Teks kustom untuk modal pembuka (modal-welcome / wood-bird)
     texts: {
       greeting: "Kepada Yth. Bapak/Ibu/Saudara/i",
@@ -110,7 +118,7 @@ window.weddingConfig = {
     whatsappNumber: "628123456789", // Nomor WA tujuan untuk menerima data konfirmasi (awali dengan kode negara, misal 62)
     submitUrl: "",                  // Opsional: URL Google Sheets App Script jika data RSVP ingin disimpan di spreadsheet
     placeholderMessage: "Tulis ucapan selamat dan doa restu terbaikmu di sini...",
-    
+
     // Teks kustom untuk modal konfirmasi kehadiran (modal rsvp / gallery)
     texts: {
       intro: "Selamat datang di acara pernikahan Laras & Bimo.",
@@ -149,27 +157,27 @@ window.weddingConfig = {
         logo: "📱"
       }
     ],
-    
+
     // Konfigurasi teks kustom & ukuran font untuk modal-gift
     texts: {
       titleFontSize: "1.1rem",
       descriptionFontSize: "0.95rem",
-      
+
       thanks: "Terima Kasih, {name}!",
       thanksFontSize: "1.1rem",
-      
+
       qrisInstruction: "Silakan pindai kode QRIS di bawah ini untuk mentransfer kado:",
       qrisInstructionFontSize: "0.95rem",
-      
+
       transferInstruction: "Silakan melakukan transfer ke rekening di bawah ini:",
       transferInstructionFontSize: "0.95rem",
-      
+
       sendInstruction: "Silakan kirimkan kado fisik Anda ke alamat penerima di bawah ini:",
       sendInstructionFontSize: "0.95rem",
-      
+
       addressTitle: "Alamat Pengiriman (Kado Fisik)",
       addressTitleFontSize: "1rem",
-      
+
       addressDetail: "<strong>Penerima:</strong> {bride} & {groom}<br><strong>Alamat:</strong> {venue}, {address}",
       addressDetailFontSize: "0.95rem"
     }
@@ -186,22 +194,22 @@ window.weddingConfig = {
     texts: {
       greeting: "Terima kasih, <strong>{guestName}</strong>!",
       greetingFontSize: "0.95rem",
-      
+
       text: "kami tunggu kamu di acara pernikahan kami.<br>kamu juga bisa loh kasih kami doa & ucapan.",
       textFontSize: "0.85rem",
-      
+
       signatureLabel: "Yang berbahagia",
       signatureLabelFontSize: "0.8rem",
-      
+
       signatureNames: "{bride} & {groom}",
       signatureNamesFontSize: "0.95rem",
-      
+
       btnWish: "Kirim doa & Ucapan",
       btnWishFontSize: "0.95rem",
-      
+
       btnClose: "Mungkin lain kali",
       btnCloseFontSize: "0.95rem",
-      
+
       formTitle: "Sampaikan doa & ucapan terbaikmu",
       formTitleFontSize: "0.95rem"
     },
@@ -248,7 +256,7 @@ window.weddingConfig = {
   // 10. ASET GAMBAR UTAMA GAME
   // =========================================================================
   assets: {
-    background: "img/prambanan.jfif",       // Background langit (parallax)
+    background: "img/download.jfif",       // Background langit (parallax)
     floor: "https://cdn-uploads.owlink.id/contenful/game-java/landgame.png",      // Lantai / jalan berpijak
     characterIdle: "https://cdn-uploads.owlink.id/contenful/game-java/jawa_character.png", // Sprite karakter diam
     characterWalk: "https://cdn-uploads.owlink.id/contenful/game-java/jawa_character_walkanimation.gif", // GIF animasi berjalan

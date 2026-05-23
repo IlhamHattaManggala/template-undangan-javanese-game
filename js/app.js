@@ -92,7 +92,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const rightImg = btnRight.querySelector("img");
       if (rightImg) rightImg.src = config.assets.arrowRight;
     }
-    // Speech bubble background handled by CSS for high-quality styled border & tail
+    // Apply speech bubble initial text & font size from config
+    if (speechText && config.speechBubble) {
+      if (config.speechBubble.initialText) {
+        speechText.innerHTML = config.speechBubble.initialText;
+      }
+      if (config.speechBubble.textFontSize) {
+        speechText.style.fontSize = config.speechBubble.textFontSize;
+      }
+    }
+    // Apply font size to all future bubble texts via inline style on speechText container
+    if (speechBubble && config.speechBubble?.textFontSize) {
+      speechBubble.style.fontSize = config.speechBubble.textFontSize;
+    }
 
     // Set cover details from config
     const coverTitle = document.getElementById("cover-title");
