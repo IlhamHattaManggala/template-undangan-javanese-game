@@ -3304,42 +3304,62 @@ body {
 }
 
 /* ========================================================================= */
-/* 11. DYNAMIC RESPONSIVE MOBILE COORDINATE LOCK (Fixes floating/sinking bugs) */
+/* 11. DYNAMIC RESPONSIVE MOBILE VIEWPORT AUTO-SCALING                        */
 /* ========================================================================= */
 @media (max-width: 1023px) {
-  /* 1. Kunci tinggi landscape frame game agar konstan di semua HP */
+  /* 1. Kunci box game ke rasio/ukuran konstan 400x720 (ukuran portrait ideal) */
+  .game-box-wrapper {
+    width: 400px !important;
+    height: 720px !important;
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    /* Skala otomatis menyesuaikan lebar/tinggi HP asli menggunakan variabel dari JS */
+    transform: translate(-50%, -50%) scale(var(--mobile-scale, 1)) !important;
+    transform-origin: center center !important;
+    border-radius: 12px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    overflow: hidden !important;
+  }
+
+  /* 2. Pastikan isi game memenuhi box game yang sudah terskala */
+  .container-game-landscape {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
   .frame-landscape {
-    height: 540px !important;
-    top: auto !important;
+    height: 100% !important;
+    top: -20% !important;
     bottom: 0 !important;
   }
   
   .container-game-landscape.onStart .frame-landscape {
-    top: auto !important;
-    bottom: 0 !important;
+    top: 0 !important;
   }
 
-  /* 2. Kunci ukuran dan posisi vertikal Karakter Utama agar sejajar sempurna dengan tanah */
+  /* 3. Kembalikan ukuran dan posisi vertikal Karakter Utama agar sejajar sempurna di rasio konstan */
   .m-character {
-    bottom: 113px !important; /* 21% dari tinggi game box 540px */
-    width: 130px !important;  /* Ukuran sprite konstan, anti-gepeng */
-    height: 180px !important; /* Tinggi sprite konstan */
+    position: absolute !important;
+    bottom: 21% !important;   /* Posisi ideal sejajar rumput pada rasio 400x720 */
+    width: 130px !important;   /* Lebar sprite tajam konstan, anti-gepeng */
+    height: 180px !important;  /* Tinggi sprite tajam konstan */
+    left: 36% !important;
   }
 
-  /* 3. Sesuaikan tinggi background parallax agar tetap menutupi seluruh tinggi layar HP */
+  /* 4. Background langit parallax mengikuti ukuran box secara presisi */
   .bg-game {
-    height: 100vh !important;
-    height: 100dvh !important;
+    height: 100% !important;
   }
 
   .bg-game img {
-    height: 120% !important;
-    top: -10% !important;
-    min-width: calc(100vw + 250px) !important;
+    height: 115% !important;
+    top: -15% !important;
   }
 
-  /* 4. Letakkan panel navigasi mobile di posisi yang proporsional */
+  /* 5. Posisi panel tombol panah mobile */
   .navigation-wrap {
-    bottom: 4vh !important;
+    bottom: 5% !important;
   }
 }

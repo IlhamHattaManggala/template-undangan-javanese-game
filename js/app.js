@@ -31,7 +31,21 @@ document.addEventListener("DOMContentLoaded", () => {
   let activeMilestone = null;
   let hasStartedWalking = false;
 
+  // --- Auto-Scaling Viewport for Mobile ---
+  function adjustMobileViewport() {
+    if (window.innerWidth < 1024) {
+      const W = window.innerWidth;
+      const H = window.innerHeight;
+      // Calculate scale to fit a standard 400x720 retro viewport
+      const scale = Math.min(W / 400, H / 720);
+      document.documentElement.style.setProperty('--mobile-scale', scale);
+    } else {
+      document.documentElement.style.removeProperty('--mobile-scale');
+    }
+  }
+
   // --- Initialization & Setup ---
+  adjustMobileViewport();
   initGameAssets();
   populateBulletinBoard();
   setupEventListeners();
@@ -45,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Bind window resize event
   window.addEventListener("resize", () => {
+    adjustMobileViewport();
     updateScrollBounds();
     handleScroll();
   });
