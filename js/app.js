@@ -870,7 +870,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     else if (modalId === "modal-rsvp") {
       if (modalContainer) {
-        modalContainer.classList.add("light-theme");
+        modalContainer.className = "modal-card rsvp-paper-theme";
       }
       
       const urlParams = new URLSearchParams(window.location.search);
@@ -890,26 +890,34 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return `${clean} ${timezone}`.trim();
       };
+
+      const rsvpTexts = config.rsvp?.texts || {};
+      const introText = rsvpTexts.intro || `Selamat datang di acara pernikahan ${config.general.brideNickname} & ${config.general.groomNickname}.`;
+      const addressLabel = rsvpTexts.addressLabel || "alamat:";
+      const scheduleLabel = rsvpTexts.scheduleLabel || "jadwal acara:";
+      const instructionText = rsvpTexts.instruction || "sebelum kamu menghadiri acara pernikahannya. kamu harus melakukan konfirmasi kehadiran terlebih dahulu. apakah kamu bersedia melakukannya?";
+      const agreeBtnText = rsvpTexts.agreeBtn || "Ya saya mau melakukan konfirmasi kehadiran";
+      const declineBtnText = rsvpTexts.declineBtn || "Nanti dulu deh";
       
       contentHtml = `
         <div class="modal-welcome-content rsvp-welcome-container">
           <p class="rsvp-welcome-hi">Hi, <strong>${guestName}</strong>!</p>
           
-          <p class="rsvp-welcome-intro">Selamat datang di acara pernikahan ${config.general.brideNickname} & ${config.general.groomNickname}.</p>
+          <p class="rsvp-welcome-intro">${introText}</p>
           
-          <p class="rsvp-welcome-address-label">alamat: <a href="${config.event.mapLink}" target="_blank" class="rsvp-address-link">${config.event.resepsi.venue}, ${config.event.resepsi.address}</a></p>
+          <p class="rsvp-welcome-address-label">${addressLabel} <a href="${config.event.mapLink}" target="_blank" class="rsvp-address-link">${config.event.resepsi.venue}, ${config.event.resepsi.address}</a></p>
           
           <div class="rsvp-welcome-schedule">
-            <p class="schedule-label">jadwal acara:</p>
+            <p class="schedule-label">${scheduleLabel}</p>
             <p class="schedule-item">marriage contract - ${config.general.weddingDate} (at ${getFormattedTime(config.event.akad.time)} - finish)</p>
             <p class="schedule-item">reception - ${config.general.weddingDate} (at ${getFormattedTime(config.event.resepsi.time)} - finish)</p>
           </div>
           
-          <p class="rsvp-welcome-instruction">sebelum kamu menghadiri acara pernikahannya. kamu harus melakukan konfirmasi kehadiran terlebih dahulu. apakah kamu bersedia melakukannya?</p>
+          <p class="rsvp-welcome-instruction">${instructionText}</p>
           
           <div class="rsvp-welcome-actions">
-            <button class="btn-rsvp-agree" id="btn-rsvp-agree">Ya saya mau melakukan konfirmasi kehadiran</button>
-            <button class="btn-rsvp-decline" id="btn-rsvp-decline">Nanti dulu deh</button>
+            <button class="btn-rsvp-agree" id="btn-rsvp-agree">${agreeBtnText}</button>
+            <button class="btn-rsvp-decline" id="btn-rsvp-decline">${declineBtnText}</button>
           </div>
         </div>
       `;
@@ -1178,15 +1186,17 @@ document.addEventListener("DOMContentLoaded", () => {
       function renderRsvpForm() {
         if (!modalContainer) return;
         
-        modalContainer.classList.add("light-theme");
+        modalContainer.className = "modal-card rsvp-paper-theme";
         
         const urlParams = new URLSearchParams(window.location.search);
         const guestParam = urlParams.get("to") || urlParams.get("u");
         const guestName = guestParam ? decodeURIComponent(guestParam) : config.cover.guestNameFallback;
 
+        const formTitle = config.rsvp?.texts?.formTitle || "Silahkan mengisi data konfirmasi kehadiran anda";
+
         modalContainer.innerHTML = `
           <div class="rsvp-form-container">
-            <h3 class="rsvp-form-title">Silahkan mengisi data konfirmasi kehadiran anda</h3>
+            <h3 class="rsvp-form-title">${formTitle}</h3>
             <form id="rsvp-form">
               <div class="rsvp-form-group">
                 <label for="rsvp-name" class="rsvp-form-label">Full Name</label>

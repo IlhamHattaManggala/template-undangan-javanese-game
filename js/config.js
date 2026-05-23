@@ -102,6 +102,17 @@ window.weddingConfig = {
     whatsappNumber: "628123456789", // Nomor WA tujuan untuk menerima data konfirmasi (awali dengan kode negara, misal 62)
     submitUrl: "",                  // Opsional: URL Google Sheets App Script jika data RSVP ingin disimpan di spreadsheet
     placeholderMessage: "Tulis ucapan selamat dan doa restu terbaikmu di sini...",
+    
+    // Teks kustom untuk modal konfirmasi kehadiran (modal rsvp / gallery)
+    texts: {
+      intro: "Selamat datang di acara pernikahan Laras & Bimo.",
+      addressLabel: "alamat:",
+      scheduleLabel: "jadwal acara:",
+      instruction: "sebelum kamu menghadiri acara pernikahannya. kamu harus melakukan konfirmasi kehadiran terlebih dahulu. apakah kamu bersedia melakukannya?",
+      agreeBtn: "Ya saya mau melakukan konfirmasi kehadiran",
+      declineBtn: "Nanti dulu deh",
+      formTitle: "Silahkan mengisi data konfirmasi kehadiran anda"
+    }
   },
 
   // =========================================================================
