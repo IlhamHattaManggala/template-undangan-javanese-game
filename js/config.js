@@ -27,6 +27,7 @@ window.weddingConfig = {
   // 2. HALAMAN COVER (LAYAR PEMBUKA)
   // =========================================================================
   cover: {
+    preTitle: "The Wedding Of",                 // Teks kecil di atas nama mempelai pada cover
     title: "THE WEDDING INVITATION",            // Judul utama di halaman depan
     subtitle: "A 2D Side-Scrolling Adventure",  // Subjudul halaman depan
     greetingText: "Kepada Yth. Bapak/Ibu/Saudara/i", // Teks salam penerima
@@ -147,7 +148,31 @@ window.weddingConfig = {
         accountHolder: "Rara Larasati",
         logo: "📱"
       }
-    ]
+    ],
+    
+    // Konfigurasi teks kustom & ukuran font untuk modal-gift
+    texts: {
+      titleFontSize: "1.1rem",
+      descriptionFontSize: "0.95rem",
+      
+      thanks: "Terima Kasih, {name}!",
+      thanksFontSize: "1.1rem",
+      
+      qrisInstruction: "Silakan pindai kode QRIS di bawah ini untuk mentransfer kado:",
+      qrisInstructionFontSize: "0.95rem",
+      
+      transferInstruction: "Silakan melakukan transfer ke rekening di bawah ini:",
+      transferInstructionFontSize: "0.95rem",
+      
+      sendInstruction: "Silakan kirimkan kado fisik Anda ke alamat penerima di bawah ini:",
+      sendInstructionFontSize: "0.95rem",
+      
+      addressTitle: "Alamat Pengiriman (Kado Fisik)",
+      addressTitleFontSize: "1rem",
+      
+      addressDetail: "<strong>Penerima:</strong> {bride} & {groom}<br><strong>Alamat:</strong> {venue}, {address}",
+      addressDetailFontSize: "0.95rem"
+    }
   },
 
   // =========================================================================
@@ -156,6 +181,30 @@ window.weddingConfig = {
   mempelai: {
     title: "Kedua Mempelai",
     description: "Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami:",
+
+    // Konfigurasi teks kustom & ukuran font untuk modal sapa mempelai (modal-mempelai)
+    texts: {
+      greeting: "Terima kasih, <strong>{guestName}</strong>!",
+      greetingFontSize: "0.95rem",
+      
+      text: "kami tunggu kamu di acara pernikahan kami.<br>kamu juga bisa loh kasih kami doa & ucapan.",
+      textFontSize: "0.85rem",
+      
+      signatureLabel: "Yang berbahagia",
+      signatureLabelFontSize: "0.8rem",
+      
+      signatureNames: "{bride} & {groom}",
+      signatureNamesFontSize: "0.95rem",
+      
+      btnWish: "Kirim doa & Ucapan",
+      btnWishFontSize: "0.95rem",
+      
+      btnClose: "Mungkin lain kali",
+      btnCloseFontSize: "0.95rem",
+      
+      formTitle: "Sampaikan doa & ucapan terbaikmu",
+      formTitleFontSize: "0.95rem"
+    },
 
     bride: {
       name: "Rara Larasati, S.Ds.",

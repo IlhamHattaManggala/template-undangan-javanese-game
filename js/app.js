@@ -105,6 +105,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnBuka) {
       btnBuka.innerText = (config.cover.buttonText || "open invitation").toLowerCase();
     }
+
+    // Dynamic pre-title rendering on cover & game frame
+    const coverPreTitle = document.querySelector("#cover-page .cover-pre-title");
+    const gamePreTitle = document.querySelector(".title-game .cover-pre-title");
+    if (config.cover.preTitle) {
+      if (coverPreTitle) coverPreTitle.innerText = config.cover.preTitle;
+      if (gamePreTitle) gamePreTitle.innerText = config.cover.preTitle;
+    }
     
     // Set cursive calligraphy details dynamically
     const coverBride = document.getElementById("cover-bride");
@@ -722,6 +730,27 @@ document.addEventListener("DOMContentLoaded", () => {
       const guestParam = urlParams.get("to") || urlParams.get("u");
       const guestName = guestParam ? decodeURIComponent(guestParam) : config.cover.guestNameFallback;
 
+      const memTexts = config.mempelai?.texts || {};
+      const greetingTpl = memTexts.greeting || "Terima kasih, <strong>{guestName}</strong>!";
+      const greetingText = greetingTpl.replace("{guestName}", guestName);
+      const greetingSize = memTexts.greetingFontSize || "0.95rem";
+      
+      const textText = memTexts.text || "kami tunggu kamu di acara pernikahan kami.<br>kamu juga bisa loh kasih kami doa & ucapan.";
+      const textSize = memTexts.textFontSize || "0.85rem";
+      
+      const sigLabel = memTexts.signatureLabel || "Yang berbahagia";
+      const sigLabelSize = memTexts.signatureLabelFontSize || "0.8rem";
+      
+      const sigNamesTpl = memTexts.signatureNames || "{bride} & {groom}";
+      const sigNames = sigNamesTpl.replace("{bride}", config.mempelai.bride.name).replace("{groom}", config.mempelai.groom.name);
+      const sigNamesSize = memTexts.signatureNamesFontSize || "0.95rem";
+      
+      const btnWishText = memTexts.btnWish || "Kirim doa & Ucapan";
+      const btnWishSize = memTexts.btnWishFontSize || "0.95rem";
+      
+      const btnCloseText = memTexts.btnClose || "Mungkin lain kali";
+      const btnCloseSize = memTexts.btnCloseFontSize || "0.95rem";
+
       contentHtml = `
         <!-- Couple wrapper containing hearts and couple image -->
         <div class="mempelai-custom-couple-wrap">
@@ -737,15 +766,15 @@ document.addEventListener("DOMContentLoaded", () => {
         
         <!-- Overlapping white card -->
         <div class="mempelai-custom-card">
-          <p class="mempelai-custom-greeting">Terima kasih, <strong>${guestName}</strong>!</p>
-          <p class="mempelai-custom-text">kami tunggu kamu di acara pernikahan kami.<br>kamu juga bisa loh kasih kami doa & ucapan.</p>
+          <p class="mempelai-custom-greeting" style="font-size: ${greetingSize};">${greetingText}</p>
+          <p class="mempelai-custom-text" style="font-size: ${textSize};">${textText}</p>
           <div class="mempelai-custom-signature">
-            <p class="signature-label">Yang berbahagia</p>
-            <p class="signature-names">${config.mempelai.bride.name} & ${config.mempelai.groom.name}</p>
+            <p class="signature-label" style="font-size: ${sigLabelSize};">${sigLabel}</p>
+            <p class="signature-names" style="font-size: ${sigNamesSize};">${sigNames}</p>
           </div>
           <div class="mempelai-custom-actions">
-            <button class="action-link link-wish" id="btn-mempelai-wish">Kirim doa & Ucapan</button>
-            <button class="action-link link-close" id="btn-mempelai-close">Mungkin lain kali</button>
+            <button class="action-link link-wish" id="btn-mempelai-wish" style="font-size: ${btnWishSize};">${btnWishText}</button>
+            <button class="action-link link-close" id="btn-mempelai-close" style="font-size: ${btnCloseSize};">${btnCloseText}</button>
           </div>
         </div>
         
@@ -933,9 +962,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (modalContainer) {
         modalContainer.classList.add("light-theme");
       }
+      const titleSize = config.gifts.texts?.titleFontSize || "1.1rem";
       contentHtml = `
         <div class="modal-header">
-          <h3 class="modal-title">${config.gifts.title}</h3>
+          <h3 class="modal-title" style="font-size: ${titleSize};">${config.gifts.title}</h3>
         </div>
         <div class="modal-body">
           <!-- Loaded dynamically via bindModalFeatures -->
@@ -1043,9 +1073,12 @@ document.addEventListener("DOMContentLoaded", () => {
         
         if (btnWish && cardContainer) {
           btnWish.addEventListener("click", () => {
+            const formTitle = config.mempelai.texts?.formTitle || "Sampaikan doa & ucapan terbaikmu";
+            const formTitleSize = config.mempelai.texts?.formTitleFontSize || "0.95rem";
+
             // Swap card content to the elegant form shown in user request
             cardContainer.innerHTML = `
-              <h3 class="mempelai-form-title">Sampaikan doa & ucapan terbaikmu</h3>
+              <h3 class="mempelai-form-title" style="font-size: ${formTitleSize};">${formTitle}</h3>
               <form id="mempelai-wish-form" style="width: 100%; display: flex; flex-direction: column; align-items: stretch;">
                 <div class="mempelai-form-group">
                   <input type="text" id="wish-name" class="mempelai-form-input" required placeholder="Your full name" value="${guestName}">
@@ -1307,9 +1340,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const guestParam = urlParams.get("to") || urlParams.get("u");
         const guestName = guestParam ? decodeURIComponent(guestParam) : config.cover.guestNameFallback;
 
+        const descSize = config.gifts.texts?.descriptionFontSize || "0.95rem";
+
         modalBody.innerHTML = `
           <div class="gift-form-container">
-            <div class="gift-form-title">${config.gifts.description}</div>
+            <div class="gift-form-title" style="font-size: ${descSize};">${config.gifts.description}</div>
             <ul class="gift-form-tabs">
               <li class="gift-tab-item ${selectedMethod === 'qris' ? 'tab-gold' : 'tab-blue'}" data-method="qris">QRIS</li>
               <li class="gift-tab-item ${selectedMethod === 'transfer' ? 'tab-gold' : 'tab-blue'}" data-method="transfer">Direct Transfer</li>
@@ -1372,12 +1407,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const modalBody = modalContainer.querySelector(".modal-body");
         if (!modalBody) return;
 
+        const giftTexts = config.gifts.texts || {};
+        
+        const thanksTpl = giftTexts.thanks || "Terima Kasih, {name}!";
+        const thanksText = thanksTpl.replace("{name}", name);
+        const thanksSize = giftTexts.thanksFontSize || "1.1rem";
+
         let detailsHtml = "";
         if (method === "qris") {
+          const qrisInst = giftTexts.qrisInstruction || "Silakan pindai kode QRIS di bawah ini untuk mentransfer kado:";
+          const qrisInstSize = giftTexts.qrisInstructionFontSize || "0.95rem";
+
           detailsHtml = `
             <div class="gift-details-container">
-              <div class="gift-details-thanks">Terima Kasih, ${name}!</div>
-              <p style="font-size: 0.95rem; color: #4b5563; margin-bottom: 10px;">Silakan pindai kode QRIS di bawah ini untuk mentransfer kado:</p>
+              <div class="gift-details-thanks" style="font-size: ${thanksSize};">${thanksText}</div>
+              <p style="font-size: ${qrisInstSize}; color: #4b5563; margin-bottom: 10px;">${qrisInst}</p>
               <div class="qris-image-wrapper">
                 <img src="img/qris_mock.png" alt="QRIS QR Code">
               </div>
@@ -1385,6 +1429,9 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
           `;
         } else if (method === "transfer") {
+          const transInst = giftTexts.transferInstruction || "Silakan melakukan transfer ke rekening di bawah ini:";
+          const transInstSize = giftTexts.transferInstructionFontSize || "0.95rem";
+
           let accountsHtml = "";
           config.gifts.accounts.forEach(acc => {
             accountsHtml += `
@@ -1403,8 +1450,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
           detailsHtml = `
             <div class="gift-details-container">
-              <div class="gift-details-thanks">Terima Kasih, ${name}!</div>
-              <p style="font-size: 0.95rem; color: #4b5563; margin-bottom: 10px;">Silakan melakukan transfer ke rekening di bawah ini:</p>
+              <div class="gift-details-thanks" style="font-size: ${thanksSize};">${thanksText}</div>
+              <p style="font-size: ${transInstSize}; color: #4b5563; margin-bottom: 10px;">${transInst}</p>
               <div class="gift-accounts-list" style="width: 100%; display: flex; flex-direction: column; gap: 12px; margin: 15px 0;">
                 ${accountsHtml}
               </div>
@@ -1412,15 +1459,28 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
           `;
         } else if (method === "send") {
+          const sendInst = giftTexts.sendInstruction || "Silakan kirimkan kado fisik Anda ke alamat penerima di bawah ini:";
+          const sendInstSize = giftTexts.sendInstructionFontSize || "0.95rem";
+          
+          const addrTitle = giftTexts.addressTitle || "Alamat Pengiriman (Kado Fisik)";
+          const addrTitleSize = giftTexts.addressTitleFontSize || "1rem";
+          
+          const addrDetailTpl = giftTexts.addressDetail || "<strong>Penerima:</strong> {bride} & {groom}<br><strong>Alamat:</strong> {venue}, {address}";
+          const addrDetail = addrDetailTpl
+            .replace("{bride}", config.general.brideNickname)
+            .replace("{groom}", config.general.groomNickname)
+            .replace("{venue}", config.event.resepsi.venue)
+            .replace("{address}", config.event.resepsi.address);
+          const addrDetailSize = giftTexts.addressDetailFontSize || "0.95rem";
+
           detailsHtml = `
             <div class="gift-details-container">
-              <div class="gift-details-thanks">Terima Kasih, ${name}!</div>
-              <p style="font-size: 0.95rem; color: #4b5563; margin-bottom: 10px;">Silakan kirimkan kado fisik Anda ke alamat penerima di bawah ini:</p>
+              <div class="gift-details-thanks" style="font-size: ${thanksSize};">${thanksText}</div>
+              <p style="font-size: ${sendInstSize}; color: #4b5563; margin-bottom: 10px;">${sendInst}</p>
               <div class="gift-address-card">
-                <div class="gift-address-title">Alamat Pengiriman (Kado Fisik)</div>
-                <div class="gift-address-detail">
-                  <strong>Penerima:</strong> ${config.general.brideNickname} & ${config.general.groomNickname}<br>
-                  <strong>Alamat:</strong> ${config.event.resepsi.venue}, ${config.event.resepsi.address}
+                <div class="gift-address-title" style="font-size: ${addrTitleSize};">${addrTitle}</div>
+                <div class="gift-address-detail" style="font-size: ${addrDetailSize};">
+                  ${addrDetail}
                 </div>
               </div>
               <div class="gift-details-back-link">&larr; Kembali</div>
