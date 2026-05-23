@@ -3302,3 +3302,123 @@ body {
     padding: 30px 0;
   }
 }
+
+/* ========================================================================= */
+/* 11. 100% RESPONSIVE MOBILE VIEWPORTS & ALIGNMENT ENGINE                   */
+/* ========================================================================= */
+@media (max-width: 1023px) {
+  :root {
+    --game-h: 540px;
+  }
+  
+  @media (max-height: 540px) {
+    :root {
+      --game-h: 100dvh;
+    }
+  }
+
+  /* Lock the game box wrapper to full viewport */
+  .game-box-wrapper {
+    width: 100vw !important;
+    height: 100dvh !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  /* Pinned sky background */
+  .bg-game {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    z-index: 1 !important;
+  }
+
+  .bg-game img {
+    height: 100% !important;
+    width: auto !important;
+    min-width: 100vw !important;
+    object-fit: cover !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  /* Lock the interactive game viewport to dynamic height --game-h pinned to the bottom */
+  .container-game-landscape {
+    height: var(--game-h) !important;
+    width: 100vw !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    top: auto !important;
+    z-index: 2 !important;
+  }
+
+  /* Pinned frame landscape */
+  .frame-landscape {
+    height: var(--game-h) !important;
+    width: max-content !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    top: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    transition: transform 2.5s ease-in-out !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Shift frame down by 20% of --game-h when cover is active */
+  .container-game-landscape.onStart .frame-landscape {
+    transform: translateY(calc(var(--game-h) * 0.20)) !important;
+    top: auto !important;
+  }
+
+  /* Locked ground height and position */
+  .frame-landscape .gameland {
+    height: calc(var(--game-h) * 0.75) !important;
+    bottom: calc(var(--game-h) * -0.21) !important;
+    position: relative !important;
+  }
+
+  /* Lock character height, width, and position on mobile to match the ground perfectly! */
+  .m-character {
+    position: absolute !important;
+    bottom: calc(var(--game-h) * 0.21) !important; /* Stands perfectly on the ground! */
+    width: 130px !important;
+    height: 180px !important;
+    left: 36% !important;
+    z-index: 5 !important;
+    transition: bottom 2.5s ease-in-out, transform 0.1s ease !important;
+  }
+
+  /* Landmarks inside the frame */
+  .action-object {
+    bottom: calc(var(--game-h) * 0.03) !important;
+  }
+
+  /* Navigation wrap on mobile */
+  .navigation-wrap {
+    bottom: 25px !important;
+    z-index: 100 !important;
+  }
+
+  /* Speech bubble sizing and positioning above the character */
+  .speech-bubble {
+    bottom: 105% !important;
+  }
+
+  /* Cover page scaling for mobile */
+  .cover-names {
+    font-size: 3.2rem !important;
+  }
+  .cover-monument {
+    height: 60% !important;
+  }
+  .cover-typography {
+    margin-top: 5vh !important;
+  }
+}
