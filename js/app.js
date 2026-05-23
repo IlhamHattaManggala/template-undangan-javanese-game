@@ -680,7 +680,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if (modalId === "modal-welcome") {
       if (modalContainer) {
-        modalContainer.classList.add("light-theme");
+        modalContainer.className = "modal-card welcome-paper-theme";
       }
       
       const urlParams = new URLSearchParams(window.location.search);
