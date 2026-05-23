@@ -309,9 +309,9 @@ document.addEventListener("DOMContentLoaded", () => {
       M = groundTiles.clientWidth;
     }
     
-    // Set scrollForcer width so character can walk exactly from left end to right end
+    // Set scrollForcer width so the camera stops exactly at the end of the ground tiles
     if (scrollForcer) {
-      scrollForcer.style.width = `${M + W * 0.64}px`;
+      scrollForcer.style.width = `${M}px`;
     }
   }
 
