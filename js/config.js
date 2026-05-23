@@ -38,8 +38,15 @@ window.weddingConfig = {
   // 3. MODAL WELCOME / KUTIPAN AYAT (Dipicu oleh Mailbox / Batang Kayu Burung)
   // =========================================================================
   welcome: {
-    arabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ Lَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا Lِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ Lَآيَاتٍ Lِّقَوْمٍ يَتَفَكَّرُونَ",
-    meaning: `"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir." (QS. Ar-Rum: 21)`
+    background: "img/kertas.jfif",            // Gambar latar belakang modal (bisa diganti dengan gambar lain)
+    arabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ Lَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا Lِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ Lَآيَاتٍ Lِّقَوْمٍ يَتَفَkَّرُونَ",
+    meaning: `"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir." (QS. Ar-Rum: 21)`,
+    
+    // Teks kustom untuk modal pembuka (modal-welcome / wood-bird)
+    texts: {
+      greeting: "Kepada Yth. Bapak/Ibu/Saudara/i",
+      buttonOk: "Ok, Mengerti"
+    }
   },
 
   // =========================================================================

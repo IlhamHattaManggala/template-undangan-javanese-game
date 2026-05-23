@@ -681,6 +681,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (modalId === "modal-welcome") {
       if (modalContainer) {
         modalContainer.className = "modal-card welcome-paper-theme";
+        if (config.welcome?.background) {
+          modalContainer.style.backgroundImage = `url('${config.welcome.background}')`;
+        }
       }
       
       const urlParams = new URLSearchParams(window.location.search);
@@ -689,9 +692,13 @@ document.addEventListener("DOMContentLoaded", () => {
       
       let displayDate = config.general.weddingDateFormattedFull || "12 . 07 . 2026";
       
+      const welcomeTexts = config.welcome?.texts || {};
+      const greetingText = welcomeTexts.greeting || "Kepada Yth. Bapak/Ibu/Saudara/i";
+      const buttonOkText = welcomeTexts.buttonOk || "Ok, Mengerti";
+
       contentHtml = `
         <div class="modal-welcome-content">
-          <p class="modal-welcome-greeting">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+          <p class="modal-welcome-greeting">${greetingText}</p>
           <h2 class="modal-welcome-guest">${guestName}</h2>
           
           <div class="modal-welcome-verse">
@@ -702,7 +709,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3 class="modal-welcome-names">${config.general.brideNickname} & ${config.general.groomNickname}</h3>
           <p class="modal-welcome-date">${displayDate}</p>
           
-          <button class="btn-welcome-ok" id="btn-welcome-close">Ok, Mengerti</button>
+          <button class="btn-welcome-ok" id="btn-welcome-close">${buttonOkText}</button>
         </div>
       `;
     } 
