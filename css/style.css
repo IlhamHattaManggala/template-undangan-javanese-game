@@ -1802,10 +1802,10 @@ body {
   border-radius: 20px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
   color: #2b1b11;
-  padding: 40px 24px;
+  padding: 65px 40px;
   width: 90%;
   max-width: 420px;
-  min-height: 540px;
+  min-height: 580px;
   text-align: center;
   align-self: center;
   margin: auto;
