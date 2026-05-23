@@ -261,7 +261,7 @@ window.weddingConfig = {
   // 9. SETTING DYNAMIC ENGINE & PARALLAX
   // =========================================================================
   engine: {
-    mapWidth: 1900,          // Total panjang peta/jalan game (dalam pixel)
+    mapWidth: 2175,          // Total panjang peta/jalan game (dalam pixel)
     characterSpeed: 10,       // Kecepatan jalan karakter (semakin besar = semakin cepat scroll)
     desktopScale: 1.0,       // Skala zoom box game di desktop komputer
     mobileScale: 1.2,        // Skala zoom layar game di HP/Mobile
